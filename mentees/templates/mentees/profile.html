@@ -1,0 +1,9 @@
+{% extends "mentors/base.html" %}
+{% block body_block %}
+<form action="{% url 'mentees:profile' %}" method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value='Submit'>
+    <a href="{% url 'mentees:dashboard' %}">Cancel</a>
+</form>
+{% endblock %}
