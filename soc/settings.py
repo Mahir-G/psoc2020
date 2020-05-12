@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'mentors.apps.MentorsConfig',
     'projects.apps.ProjectsConfig',
+    'mentees.apps.MenteesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
