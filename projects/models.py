@@ -12,12 +12,3 @@ class Project(models.Model):
 
         def __str__(self):
             return self.title
-
-        # modified save function to only save projects if and only if the count of projects under one mentor
-        # is less than or equal to 3
-        def save(self, *args, **kwargs):
-            if Mentor.objects.get(pk=self.mentor.id).project_set.all().count()<3:
-                super().save(*args, **kwargs)
-            else:
-                print("already three projects, can't add another")
-                return

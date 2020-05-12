@@ -1,0 +1,25 @@
+{% extends 'mentors/base.html' %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            <form method="post" method="{% url 'projects:detail' project.id %}">
+                {% csrf_token %}
+                <h1>Title: {{ project.title }}</h1>
+                <h6>Mentor: {{ project.mentor.user.username }}</h6>
+                <p>{{ project.description }}</p>
+                {% if is_mentee %}
+                    {% if already_applied %}
+                        <p>Already Applied</p>
+                    {% else %}
+                            {% if not_reached %}
+                                <input type="submit" value="Apply for this project.">
+                            {% else %}
+                                <p>Already applied to 3 projects. Cannot apply more.
+                                </p>
+                            {% endif %}
+                    {% endif %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock %}
