@@ -1,0 +1,61 @@
+{% extends 'mentors/base.html' %} {% load static %} {% block body_block %} 
+<link rel="stylesheet" href="{% static 'mentors/css/style.css' %}" />
+<section class="home-section pt-4 pb-5">
+{% if show_button %}
+<div>
+  <button type="button">
+    <a href="{% url 'mentors:create_project' %}">Create new project</a>
+  </button>
+</div>
+{% endif %}
+<div class="container">
+  <div class="row" style="margin-bottom: 30px; margin-top: 30px;">
+    {% for project in user.mentor.project_set.all %}
+
+    <div class="col-md-4">
+      <div class="card shadow" style="width: 20rem;">
+        <div class="inner">
+          <img
+            src="{% static 'mentors/img/card1.jpg' %}"
+            class="card-img-top"
+            alt="..."
+          />
+        </div>
+        <div class="card-body text-center" style="color: black;">
+          <h5 class="card-title">{{ project.title }}</h5>
+          <p class="card-text">
+            {{ project.description }}
+          </p>
+          <a href="#" class="btn btn-success">Read More</a>
+
+          <!-- <div class="card-text">
+            <p>Selected Students:</p>
+            {% for student in project.selected_mentee.all %}
+            <p>{{ student.user.username }}</p>
+            {% endfor %}
+          </div>
+          <div class="card-text">
+            <p>Applicants:</p>
+            {% for student in project.mentee_applications.all %} {% if
+            student.selected == NULL %}
+            <form method="post" action="{% url 'mentors:dashboard' %}">
+              {% csrf_token %}
+              <p>{{ student.user.username }}</p>
+              <input name="project" value="{{ project.id }}" style="display: none;" />
+              <input
+                name="mentee_id"
+                value="{{ student.id }}"
+                style="display: none;"
+              />
+              <input type="submit" value="Accept Application" />
+            </form>
+            {% endfor %}
+          </div> -->
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</section>
+{% endblock %}
