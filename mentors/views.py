@@ -55,16 +55,21 @@ class Login(View):
     def post(self, request, *args, **kwargs):
         username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
+        try:
+            user = authenticate(username=username, password=password)
+        except:
+            return HttpResponse("User Not Found")
 
         if user:
             if user.is_active:
                 login(request, user)
-                # return HttpResponseRedirect(reverse('mentors:dashboard'))
+                #return HttpResponseRedirect(reverse('mentors:dashboard'))
                 if hasattr(request.user, 'mentor'):
                     return HttpResponseRedirect(reverse('mentors:dashboard'))
                 elif hasattr(request.user, 'mentee'):
                     return HttpResponseRedirect(reverse('mentees:dashboard'))
+                else:
+                    return HttpResponse("You are Admin")
             else:
                 return HttpResponse("Your account was inactive.")
         else:
@@ -122,7 +127,7 @@ class Profile(View):
     def get(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentor'):
             mentor = request.user.mentor
-            if mentor.name == 0 or mentor.phone == 0 or mentor.organisation == 0:
+            if mentor.name == 0 or mentor.linkedin == 0:
                 form = self.form_class()
             else:
                 form = self.form_class(instance=mentor)
@@ -133,7 +138,7 @@ class Profile(View):
     def post(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentor'):
             mentor = request.user.mentor
-            form = self.form_class(request.POST, instance=mentor)
+            form = self.form_class(request.POST, request.FILES, instance=mentor)
             if form.is_valid:
                 form.save()
             else:

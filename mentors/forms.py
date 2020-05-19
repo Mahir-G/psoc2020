@@ -12,4 +12,4 @@ class UserForm(ModelForm):
 class MentorForm(ModelForm):
     class Meta():
         model = Mentor
-        fields = ['name', 'phone', 'organisation']
+        fields = ['name', 'linkedin', 'cv']

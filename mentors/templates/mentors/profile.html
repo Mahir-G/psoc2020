@@ -1,6 +1,6 @@
 {% extends "mentors/base.html" %}
 {% block body_block %}
-<form action="{% url 'mentors:profile' %}" method='POST'>
+<form action="{% url 'mentors:profile' %}" method='POST' enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input type='submit' value='Submit'>

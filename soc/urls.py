@@ -19,6 +19,9 @@ from django.urls import path, include
 import projects.views as project_views
 import mentors.views as mentor_views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', project_views.Main.as_view(), name='main_page'),
     path('login/', mentor_views.Login.as_view(), name='user_login'),
@@ -28,3 +31,7 @@ urlpatterns = [
     path('projects/', include('projects.urls')),
     path('mentees/', include('mentees.urls')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
