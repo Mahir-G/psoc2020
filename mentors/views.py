@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 from .models import User, Mentor
 from projects.models import Project
@@ -46,8 +47,6 @@ class Register(View):
 
 
 # view to handle login
-
-
 class Login(View):
     template_name = 'mentors/login.html'
 
@@ -60,25 +59,25 @@ class Login(View):
         try:
             user = authenticate(username=username, password=password)
         except:
-            return HttpResponse("User Not Found")
+            messages.add_message(request, messages.ERROR, 'Invalid Username or Password')
 
         if user:
             if user.is_active:
                 login(request, user)
-                #return HttpResponseRedirect(reverse('mentors:dashboard'))
                 if hasattr(request.user, 'mentor'):
                     return HttpResponseRedirect(reverse('mentors:dashboard'))
                 elif hasattr(request.user, 'mentee'):
                     return HttpResponseRedirect(reverse('mentees:dashboard'))
                 else:
-                    return HttpResponse("You are Admin")
+                    messages.add_message(request, messages.ERROR, 'You are Admin')
             else:
-                return HttpResponse("Your account was inactive.")
+                messages.add_message(request, messages.ERROR, 'Your Account was Inactive')
         else:
             print("Someone tried to login and failed.")
             print("They used username: {} and password: {}".format(
                 username, password))
-            return HttpResponse('Invalid login details given.')
+            messages.add_message(request, messages.ERROR, 'Invalid Username or Password')
+        return render(request, self.template_name)
 
 
 # view to handle logout of users
