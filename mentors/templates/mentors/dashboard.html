@@ -3,9 +3,9 @@
 <section class="home-section pt-4 pb-5">
 {% if show_button %}
 <div>
-  <button type="button">
-    <a href="{% url 'mentors:create_project' %}">Create new project</a>
-  </button>
+  <a href="{% url 'mentors:create_project' %}">
+    <button type='button'>Create New Project</button>
+  </a>
 </div>
 {% endif %}
 <div class="container">

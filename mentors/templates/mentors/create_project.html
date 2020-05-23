@@ -1,13 +1,22 @@
 {% extends 'mentors/base.html' %}
 {% block body_block%}
-    <div class = "container">
-        <div class="jumbotron">
-            <form enctype="multipart/form-data" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" name="" value="Create">
-                <button type="button"><a href="{% url 'mentors:dashboard' %}">Cancel</a></button>
-            </form>
+    <section class="home-section pt-4 pb-5">
+        <div class = "container">
+            <div class="jumbotron">
+                <div class='create-form-head'>
+                    <p class='header'>create your project here</p>
+                    <p class='sub-header'>fill the details below</p>
+                </div>
+                <hr />
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class='create-form-buttons'>
+                        <input type="submit" name="" value="Create">
+                        <a href="{% url 'mentors:dashboard' %}"><button type="button">Cancel</button></a>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
 {% endblock %}
