@@ -8,7 +8,7 @@ def user_directory_path(instance, filename):
 
 class Mentor(models.Model):
     name = models.CharField(max_length=64, default="")
-    linkedin = models.CharField(max_length=100, null=True, blank=True)
+    linkedin = models.CharField(max_length=100, null=True, default="")
     cv = models.FileField(upload_to=user_directory_path, null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_mentor = models.BooleanField(default=True)

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
@@ -95,9 +95,12 @@ class DashBoard(View):
 
     def get(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentor'):
-            if (request.user.mentor.project_set.all().count() >= 3):
-                self.show_button = False
-            return render(request, 'mentors/dashboard.html', {'show_button': self.show_button})
+            if not ((request.user.mentor.name !="") and (request.user.mentor.linkedin !="" or request.user.mentor.cv !="")):
+                return redirect('mentors:profile')
+            else:
+                if (request.user.mentor.project_set.all().count() >= 3):
+                    self.show_button = False
+                return render(request, 'mentors/dashboard.html', {'show_button': self.show_button})
         else:
             return HttpResponse("You are not a mentor")
 
