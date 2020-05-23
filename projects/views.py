@@ -19,7 +19,7 @@ class Index(View):
     template_name = 'projects/index.html'
 
     def get(self, request, *args, **kwargs):
-        projects = Project.objects.all()
+        projects = Project.objects.filter(is_approved='True')
         return render(request, self.template_name, {'projects':projects})
 
 
