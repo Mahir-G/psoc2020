@@ -24,6 +24,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', project_views.Main.as_view(), name='main_page'),
+    path('adminpanel/', project_views.AdminIndex.as_view(), name='admin_panel'),
+    path('adminpanel/<int:pk>/', project_views.AdminProjectDetail.as_view(), name='admin_panel_project_detail'),
     path('login/', mentor_views.Login.as_view(), name='user_login'),
     path('logout/', mentor_views.LogOut.as_view(), name='logout'),
     path('admin/', admin.site.urls),

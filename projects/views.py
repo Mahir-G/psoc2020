@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
@@ -50,3 +50,33 @@ class ProjectDetail(View):
                 return HttpResponseRedirect(reverse('projects:detail', args=(project.id,)))
             else:
                 return HttpResponse("Cannot apply for another project.")
+
+
+class AdminIndex(View):
+    template_name = 'projects/adminindex.html'
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_superuser:
+            projects = Project.objects.all()
+            return render(request, self.template_name, {'projects':projects})
+        else:
+            return HttpResponse("You are not authorized to access this page.")
+
+class AdminProjectDetail(View):
+    template_name = 'projects/admindetail.html'
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_superuser:
+            project = Project.objects.get(pk=kwargs['pk'])
+            return render(request, self.template_name, {'project': project})
+        else:
+            return HttpResponse("You are not authorized to access this page.")
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_superuser:
+            project = Project.objects.get(pk=kwargs['pk'])
+            project.is_approved = True
+            project.save()
+            return redirect('admin_panel_project_detail', project.id)
+        else:
+            return HttpResponse("You are not authorized to access this page.")
