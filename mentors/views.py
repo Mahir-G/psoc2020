@@ -13,14 +13,14 @@ from .forms import MentorForm, UserForm
 from projects.forms import ProjectForm
 
 # view to handle the registration form for mentors
-
-
 class Register(View):
     form_class = UserForm
     registered = False
     template_name = 'mentors/register.html'
+    errors = []
 
     def get(self, request, *args, **kwargs):
+        self.errors = []
         return render(request, self.template_name, {'registered': self.registered})
 
     def post(self, request, *args, **kwargs):
@@ -29,6 +29,7 @@ class Register(View):
             'email': request.POST.get('email'),
             'password': request.POST.get('password')
         }
+        self.errors=[]
         form = self.form_class(data=data)
         if form.is_valid():
             user = form.save(commit=False)
@@ -40,8 +41,9 @@ class Register(View):
 
             self.registered = True
         else:
-            print(form.errors)
-        return render(request, self.template_name, {'form': form, 'registered': self.registered})
+            self.errors.append(form.errors)
+        return render(request, self.template_name, {'form': form, 'registered': self.registered, 'errors': self.errors})
+
 
 # view to handle login
 
