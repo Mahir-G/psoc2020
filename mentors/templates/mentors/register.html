@@ -1,91 +1,97 @@
 {% extends "mentors/base.html" %} {% load static %} {% block body_block %}
 <link rel="stylesheet" href="{% static 'mentors/css/style-sign-up.css' %}" />
-<div class="container">
+<div class="container mt-3 mb-4">
   {% if registered %}
   <div class='container'>
   <h1>Thank you for registering!</h1>
   <a href="{% url 'user_login' %}">Login</a>
   </div>
   {% else %}
-  <div class="signup-form pt-5 pb-5">
-    <form enctype="multipart/form-data" method="POST">
-      {% csrf_token %}
-      <h2>Sign Up as Mentor</h2>
-      <p>Please fill in this form to create an account!</p>
-      <hr />
-      <div class="form-group">
-        <div class="input-group">
-          <span class="input-group-addon p-2"><i class="fa fa-user"></i></span>
-          <input
-            type="text"
-            class="form-control"
-            name="username"
-            placeholder="Username"
-            required="required"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="input-group">
-          <span class="input-group-addon p-2"
-            ><i class="fa fa-paper-plane"></i
-          ></span>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            placeholder="Email Address"
-            required="required"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="input-group">
-          <span class="input-group-addon p-2"><i class="fa fa-lock"></i></span>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            placeholder="Password"
-            required="required"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="input-group">
-          <span class="input-group-addon p-2">
-            <i class="fa fa-lock"></i>
-            <i class="fa fa-check pt-1"></i>
-          </span>
-          <input
-            type="password"
-            class="form-control"
-            name="confirm_password"
-            placeholder="Confirm Password"
-            required="required"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="checkbox-inline p-"
-          ><input type="checkbox" required="required" /> I accept the
-          <a href="#">Terms of Use</a> &amp;
-          <a href="#">Privacy Policy</a></label
-        >
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
-      </div>
-
-      <div class="error-list">
-        {% for error in errors %}
-          {{ error }}
-        {% endfor %}
-      </div>
-    </form>
-    <div class="text-center">
-      Already have an account? <a href="{% url 'user_login' %}">Login here</a>
+  <div class="row">
+    <div class="mentor-descrip pt-5 pb-5 col-lg-6">
+      <h1>After Signing Up as a Mentor Proceed as follows -</h1>
+      <ul>
+        <li>Login and propose a project.</li>
+        <li>Mentor should create a github repo for the project with all details in the readme and project structure.</li>
+        <li>Mentors are selected on the basis of their project idea and their experience.</li>
+        <li>Mentors are available throughout the program to review pull requests, help with concepts and generally support mentee.</li>
+        <li>For any queries, reach out to us at <a href="mailto: pclubuiet@gmail.com">pclubuiet@gmail.com</a></li>
+      </ul>
     </div>
+    <div class="signup-form pt-5 pb-5 ">
+      <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <h2>Sign Up as Mentor</h2>
+        <p>Please fill in this form to create an account!</p>
+        <hr />
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon p-2"><i class="fa fa-user"></i></span>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              placeholder="Username"
+              required="required"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon p-2"
+              ><i class="fa fa-paper-plane"></i
+            ></span>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              placeholder="Email Address"
+              required="required"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon p-2"><i class="fa fa-lock"></i></span>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Password"
+              required="required"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon p-2">
+              <i class="fa fa-lock"></i>
+              <i class="fa fa-check pt-1"></i>
+            </span>
+            <input
+              type="password"
+              class="form-control"
+              name="confirm_password"
+              placeholder="Confirm Password"
+              required="required"
+            />
+          </div>
+        </div>
+        <div class="form-group checkbox-form">
+          <label class="checkbox-inline p-"
+            ><input type="checkbox" required="required" /> I accept the
+            <a href="#">Terms of Use</a> &amp;
+            <a href="#">Privacy Policy</a></label
+          >
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </div>
+      </form>
+      <div class="text-center">
+        Already have an account? <a href="{% url 'user_login' %}">Login here</a>
+      </div>
+      </div>
     </div>
     {% endif %}
   </div>
