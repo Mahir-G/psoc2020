@@ -1,17 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&family=Baloo+Paaji+2:wght@400;500;600&family=Comfortaa:wght@400;500;600;700&family=Montserrat:wght@100;400;500&family=Quicksand:wght@300;400;500&family=Raleway:wght@300;400;500;600&display=swap');
 body {
     color: #fff;
     background-image: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%);
     font-family: 'Roboto', sans-serif;
 }
 
-.form-control,
-.form-control:focus,
-.input-group-addon {
+/* Instructions */
+
+.mentor-descrip h1 {
+    font-family: 'Quicksand';
+    font-size: 24px;
+    padding: 2rem 3rem 0 2rem;
+}
+
+.mentor-descrip ul {
+    margin: 0;
+    padding: 1rem 3rem 0 3rem;
+}
+
+.mentor-descrip ul li {
+    font-family: 'Quicksand';
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    padding-top: 1rem;
+    padding-left: 0.3rem;
+    letter-spacing: 0.2px;
+}
+
+.mentor-descrip ul li a {
+    font-size: 18px;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+/* form */
+
+.form-control, .form-control:focus, .input-group-addon {
     border-color: #e1e1e1;
 }
 
-.form-control,
-.btn {
+.form-control, .btn {
     border-radius: 3px;
 }
 
@@ -31,9 +59,18 @@ body {
 }
 
 .signup-form h2 {
+    font-family: 'Quicksand';
     color: #333;
-    font-weight: bold;
+    font-weight: 600;
     margin-top: 0;
+}
+
+.signup-form p {
+    font-family: 'Quicksand';
+    font-weight: 400;
+    color: #888;
+    letter-spacing: -0.3px;
+    padding-left: 2px;
 }
 
 .signup-form hr {
@@ -45,45 +82,47 @@ body {
 }
 
 .signup-form label {
+    font-family: 'Quicksand';
+    letter-spacing: -0.5px;
     font-weight: normal;
     font-size: 13px;
 }
 
 .signup-form .form-control {
+    text-decoration: none;
+    font-family: 'Quicksand';
     min-height: 38px;
     box-shadow: none !important;
 }
 
 .signup-form .input-group-addon {
+    color: #777;
     max-width: 42px;
     text-align: center;
 }
 
 .signup-form input[type="checkbox"] {
-    margin-top: 2px;
+    vertical-align: text-bottom;
+}
+
+.signup-form .checkbox-form {
+    color: #666;
+    padding-left: 20px;
 }
 
 .signup-form .btn {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 19px;
+    font-family: 'Quicksand';
+    font-weight: 500;
+    letter-spacing: 1px;
     background: #19aa8d;
     border: none;
     min-width: 140px;
 }
 
-.signup-form .btn:hover,
-.signup-form .btn:focus {
+.signup-form .btn:hover, .signup-form .btn:focus {
     background: #179b81;
     outline: none;
-}
-
-.signup-form a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.signup-form a:hover {
-    text-decoration: none;
 }
 
 .signup-form form a {
@@ -109,4 +148,20 @@ body {
     top: 18px;
     font-size: 7px;
     position: absolute;
+}
+
+.signup-form .text-center {
+    font-family: 'Quicksand';
+    color: #fff;
+}
+
+.signup-form .text-center a {
+    text-decoration: underline;
+    color: white;
+}
+
+.signup-form .text-center a:hover {
+    transition: 0.3s;
+    text-decoration: none;
+    color: #19aa8d;
 }
