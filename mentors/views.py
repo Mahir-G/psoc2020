@@ -131,22 +131,34 @@ class Profile(View):
     def get(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentor'):
             mentor = request.user.mentor
-            if mentor.name == 0 or mentor.linkedin == 0:
-                form = self.form_class()
+            data = {
+                'name': mentor.name,
+                'linkedin': mentor.linkedin,
+                'github': mentor.github,
+            }
+            if mentor.cv == "":
+                data['display'] = 'block'
             else:
-                form = self.form_class(instance=mentor)
-            return render(request, 'mentors/profile.html', {'form': form})
+                data['display'] = 'none'
+            return render(request, 'mentors/profile.html', {'data': data})
         else:
             return HttpResponse("You are not a mentor.")
 
     def post(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentor'):
             mentor = request.user.mentor
-            form = self.form_class(request.POST, request.FILES, instance=mentor)
-            if form.is_valid:
-                form.save()
-            else:
-                print(form.errors)
+            name = request.POST.get('name')
+            linkedin = request.POST.get('linkedin')
+            github = request.POST.get('github')
+            if mentor.cv == "":
+                cv = request.FILES['CV']
+
+            mentor.name = name
+            mentor.linkedin = linkedin
+            mentor.github = github
+            if mentor.cv == "":
+                mentor.cv = cv
+            mentor.save()
             return HttpResponseRedirect(reverse('mentors:dashboard'))
         else:
             return HttpResponse("You are not a mentor.")
@@ -159,16 +171,18 @@ class CreateProject(View):
 
     def get(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentor'):
-            form = self.form_class()
-            return render(request, 'mentors/create_project.html', {'form': form})
+            return render(request, 'mentors/create_project.html')
         else:
             return HttpResponse("You are not a mentor")
 
     def post(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentor'):
-            form = self.form_class(request.POST)
-            if form.is_valid() and request.user.mentor.project_set.all().count() < 3:
-                new_project = form.save(commit=False)
+            title = request.POST.get('title')
+            description = request.POST.get('description')
+            stack = request.POST.get('stack')
+
+            if (title!="" and description!="" and stack!="") and request.user.mentor.project_set.all().count() < 3:
+                new_project = Project(title=title, description=description, stack=stack)
                 new_project.mentor = request.user.mentor
                 if Project.objects.all().count() < 10:
                     new_project.code = 'PSOC0' + \

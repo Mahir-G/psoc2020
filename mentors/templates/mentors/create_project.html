@@ -7,16 +7,16 @@
                     {% csrf_token %}
                     <div class="form-input">
                         <label>Title :</label>
-                        <input type="text" name="name" placeholder="lorem ipsum"
+                        <input type="text" name="title" placeholder="Title of Project"
                         required="required" autocomplete="off">
                     </div>
                     <div class="form-input">
                         <label>Desciption :</label>
-                        <textarea type="text" cols="60" rows="10" required="required" id="id_description" placeholder="{% lorem 1 b random %}"></textarea>
+                        <textarea type="text" name="description" cols="60" rows="10" required="required" id="id_description" placeholder="Description of Your Project"></textarea>
                     </div>
                     <div class="form-input">
                         <label>Stack :</label>
-                        <input type="text" name="github" placeholder="lorem ipsum"
+                        <input type="text" name="stack" placeholder="Stack Used"
                         required="required" autocomplete="off">
                     </div>
                     <input type="submit" name="" value="Create" class="submit btn-primary">
