@@ -82,6 +82,22 @@ body {
     background-color: #0097e6;
 }
 
+.create-project {
+    height: 150px;
+    text-align: center;
+}
+
+.create-project button {
+    font-family: 'Quicksand';
+    background: transparent;
+    border: none;
+    margin-top: 80px;
+}
+
+.create-project button a {
+    padding: .5rem 1.75rem;
+}
+
 /*END: SECTION */
 
 /* START: Footer */
