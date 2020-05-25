@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="{% static 'mentors/css/style-sign-up.css' %}" />
 <div class="container mt-3 mb-4">
   {% if registered %}
-  <div class='container'>
+  <div class='container registered pt-5'>
   <h1>Thank you for registering!</h1>
-  <a href="{% url 'user_login' %}">Login</a>
+  <a href="{% url 'user_login' %}" class="btn btn-primary">Login</a>
   </div>
   {% else %}
   <div class="row">
