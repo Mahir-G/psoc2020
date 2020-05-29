@@ -1,0 +1,108 @@
+body {
+    background: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%);
+}
+
+.detail-section {
+    font-family: 'Quicksand';
+    width: 80%;
+    margin: 4rem auto 4rem auto;
+    /* color: white; */
+    /* text-align: center; */
+}
+
+form {
+    border: 1px solid #ccc;
+    padding: 2rem;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.proj-title h1 {
+    font-family: 'Comfortaa';
+    font-size: 40px;
+    text-align: center;
+}
+
+h6, p {
+    padding: 1rem 0.5rem;
+}
+
+h6 {
+    font-size: 17px;
+}
+
+.description {
+    margin-top: 2.5rem;
+}
+
+.description p {
+    font-size: 15px;
+    padding-top: 0;
+    color: #444;
+    margin-bottom: 4rem;
+    /* color: #ccc; */
+}
+
+.mentor {
+    display: flex;
+    margin-top: 0;
+}
+
+.mentor h6 {
+    color: #666;
+}
+
+.mentor-email {
+    margin-left: auto;
+}
+
+hr {
+    border-top: 1px solid #ccc;
+}
+
+.header-hr {
+    margin-bottom: 0;
+}
+
+.stack h6 {
+    padding-top: 0;
+}
+
+.approve {
+    margin-left: 0.4rem;
+}
+
+.status {
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
+@media only screen and (max-width:768px) {
+    .detail-section {
+        width: 90%;
+    }
+    .proj-title h1 {
+        font-size: 30px;
+    }
+    .mentor {
+        display: block;
+    }
+    .mentor h6 {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width:501px) {
+    .detail-section {
+        width: 100%;
+    }
+    .proj-title h1 {
+        font-size: 25px;
+    }
+    .description h6 {
+        font: 15px;
+    }
+    .description p {
+        font: 13px;
+    }
+}
