@@ -2,11 +2,11 @@
 <link rel="stylesheet" href="{% static 'mentors/css/style.css' %}" />
 <section class="home-section pt-4 pb-5">
   <div class="container">
-    <div class="row" style="margin-top: 30px; margin-bottom: 30px;">
+    <div class="row card-set">
       {% if projects|length > 0  %}
         {% for project in projects %}
-        <div class="col-md-4">
-          <div class="card shadow" style="width: 20rem; margin: 30px 0px;">
+        <div class="col-lg-4 col-md-12 justify-content-center">
+          <div class="card shadow">
             <div class="inner">
               <img
                 src="{% static 'mentors/img/card1.jpg' %}"

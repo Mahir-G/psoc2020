@@ -1,14 +1,31 @@
-{% extends 'mentors/base.html' %}
-{% block body_block %}
+{% extends 'mentors/base.html' %} {% load static %} {% block body_block %}
+<link rel="stylesheet" href="{% static 'mentors/css/detail.css' %}" />
     <div class="container">
-        <div class="jumbotron">
+        <div class="detail-section">
             <form method="post" method="{% url 'projects:detail' project.id %}">
                 {% csrf_token %}
-                <h1>Title: {{ project.title }}</h1>
-                <h6>Mentor: {{ project.mentor.name }}</h6>
-                <h6>Email: {{ project.mentor.user.email }}</h6>
-                <p><h6>Description: </h6>{{ project.description }}</p>
-                <h6>Stack Used: {{ project.stack }}</h6>
+                <div class="proj-title">
+                    <h1>Title: {{ project.title }}</h1>
+                    {% comment %} <hr> {% endcomment %}
+                </div>
+                <hr class="header-hr">
+                <div class="mentor">
+                    <h6>Mentor: {{ project.mentor.name }}</h6>
+                    <div class="mentor-email">
+                        <h6>Email: {{ project.mentor.user.email }}</h6>
+                        {% comment %} <hr> {% endcomment %}
+                    </div>
+                    {% comment %} <hr> {% endcomment %}
+                </div>
+                {% comment %} <hr class="header-hr"> {% endcomment %}
+                <div class="description">
+                    <h6>Description:</h6>
+                    <p>{{ project.description }}</p>
+                    <hr>
+                </div>
+                <div class="stack"> 
+                    <h6>Stack Used: {{ project.stack }}</h6>
+                </div>
                 {% if is_mentee %}
                     {% if already_applied %}
                         <p>Already Applied</p>

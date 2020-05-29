@@ -11,7 +11,6 @@
     background-color: aqua;
 }
 
-
 /* START: HEADER */
 
 #topHeader {
@@ -39,9 +38,7 @@
     color: black;
 }
 
-
 /*END: HEADER */
-
 
 /* START: HOME PAGE SECTION*/
 
@@ -50,9 +47,19 @@
     background-image: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%);
 }
 
+.card {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.card-set {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
 /*END: SECTION */
-
 
 /* START: Footer */
 
@@ -76,6 +83,5 @@
 .top-footer a {
     color: white;
 }
-
 
 /* END: Footer */

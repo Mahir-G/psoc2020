@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="{% static 'mentors/css/create-project.css' %}" />
     <div class = "section">
         <div class="container">
+            <div class="descrip-head">
+                <h1>Create Project</h1>
+            </div>
             <div class="row justify-content-center">
                 <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}

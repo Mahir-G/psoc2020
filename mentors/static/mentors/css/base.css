@@ -83,7 +83,7 @@ body {
 }
 
 .create-project {
-    height: 150px;
+    height: 200px;
     text-align: center;
 }
 
@@ -91,7 +91,7 @@ body {
     font-family: 'Quicksand';
     background: transparent;
     border: none;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .create-project button a {
