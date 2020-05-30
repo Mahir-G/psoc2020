@@ -1,0 +1,10 @@
+media/
+.vscode
+mentors/migrations/
+mentors/__pycache__/
+mentees/migrations/
+mentees/__pycache__/
+projects/migrations/
+projects/__pycache__/
+soc/__pycache__/
+db.sqlite3
