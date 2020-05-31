@@ -1,6 +1,6 @@
 {% extends 'mentors/base.html' %} {% load static %} {% block body_block %}
 <link rel="stylesheet" href="{% static 'mentors/css/style.css' %}" />
-<section class="home-section pt-4 pb-5">
+<section class="home-section pt-5 pb-5">
   <div class="container">
     <div class="row card-set">
       {% if projects|length > 0  %}
@@ -29,7 +29,7 @@
         </div>
         {% endfor %}
       {% else %}
-        <div>
+        <div class="no-project">
           <br>
           <h2>No Projects Yet ...</h2>
           <h3>Wait for approval of your projects.</h3>

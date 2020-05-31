@@ -59,6 +59,21 @@
     margin-bottom: 30px;
 }
 
+.no-project {
+    width: 100%;
+    font-family: 'Quicksand';
+    text-align: center;
+}
+
+@media only screen and (max-width:501px) {
+    .no-project h2 {
+        font-size: 25px;
+    }
+    .no-project h3 {
+        font-size: 22px;
+    }
+}
+
 /*END: SECTION */
 
 /* START: Footer */
