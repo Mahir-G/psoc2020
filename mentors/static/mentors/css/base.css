@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&family=Baloo+Paaji+2:wght@400;500;600&family=Comfortaa:wght@400;500;600;700&family=Montserrat:wght@100;400;500&family=Quicksand:wght@300;400;500&family=Raleway:wght@300;400;500;600&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     overflow-x: hidden;
 }
@@ -80,6 +84,33 @@ body {
     font-family: 'Comfortaa';
     color: #fff;
     background-color: #0097e6;
+}
+
+@media only screen and (max-width:767px) {
+    .main-section {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .main-section h2 {
+        margin-top: 20px;
+        font-size: 28px;
+    }
+    .main-section h5 {
+        font-size: 17px;
+        width: 100%;
+        margin-top: 20px;
+        text-align: justify;
+    }
+    .main-section .main-register h3 {
+        font-size: 25px;
+    }
+    .main-section .main-register h3 span {
+        font-size: 28px;
+    }
+    img {
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .create-project {
@@ -171,6 +202,25 @@ body {
 
 .top-footer .img-fluid {
     width: 150px;
+}
+
+@media only screen and (max-width:767px) {
+    .full-footer {
+        padding-top: 2rem;
+    }
+    .top-footer .img-fluid {
+        width: 120px;
+        margin-left: 0;
+        transform: none;
+    }
+    .top-footer p {
+        padding: 15px 0 0 12px;
+        text-align: justify;
+    }
+    .contact {
+        padding: 0 3.2rem;
+        margin-bottom: 3rem;
+    }
 }
 
 /* END: Footer */
