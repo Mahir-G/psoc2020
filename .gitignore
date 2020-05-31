@@ -8,3 +8,4 @@ projects/migrations/
 projects/__pycache__/
 soc/__pycache__/
 db.sqlite3
+soc/settings.py
