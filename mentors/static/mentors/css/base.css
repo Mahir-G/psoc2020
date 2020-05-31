@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&family=Baloo+Paaji+2:wght@400;500;600&family=Comfortaa:wght@400;500;600;700&family=Montserrat:wght@100;400;500&family=Quicksand:wght@300;400;500&family=Raleway:wght@300;400;500;600&display=swap');
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -84,6 +85,12 @@ body {
     font-family: 'Comfortaa';
     color: #fff;
     background-color: #0097e6;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.main-section .main-register .mentor button {
+    margin-right: 2rem;
 }
 
 @media only screen and (max-width:767px) {
@@ -110,6 +117,11 @@ body {
     img {
         margin-left: 50%;
         transform: translateX(-50%);
+    }
+}
+
+@media only screen and (max-width:420px) {
+    .main-section .main-register .mentor button {
     }
 }
 
