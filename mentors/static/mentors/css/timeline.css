@@ -281,6 +281,15 @@
     .featured-schedule-collection .schedule-box .links:nth-child(odd):after {
         opacity: 0;
     }
+    .timeline-head {
+        margin-bottom: 1.5rem;
+        padding: 0 30%;
+        margin-top: 0.5rem;
+    }
+    .timeline-head h1 {
+        font-size: 36px;
+        padding-bottom: 1.1rem;
+    }
 }
 
 @media screen and (min-width:801px) and (max-width:1000px) {
@@ -309,6 +318,9 @@
     }
     .featured-schedule-collection .schedule-box .links:nth-child(odd):after {
         opacity: 0;
+    }
+    .timeline-head {
+        padding: 0 30%;
     }
 }
 
@@ -343,11 +355,20 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 420px) {
     .featured-schedule-collection .schedule-box {
         width: 100%;
     }
     .featured-schedule h3 {
         margin: 0 0px;
+    }
+    .timeline-head {
+        margin-bottom: 1.5rem;
+        padding: 0 10%;
+        margin-top: 0.5rem;
+    }
+    .timeline-head h1 {
+        font-size: 32px;
+        padding-bottom: 1.1rem;
     }
 }

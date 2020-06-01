@@ -75,6 +75,7 @@ body {
 
 .main-section .main-register h3 {
     font-family: 'Quicksand';
+    font-size: 28px;
 }
 
 .main-section .main-register h3 span {
@@ -91,6 +92,20 @@ body {
 
 .main-section .main-register .mentor button {
     margin-right: 2rem;
+}
+
+.timeline-head {
+    font-family: 'Quicksand';
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 40%;
+    margin-top: 1rem;
+}
+
+.timeline-head h1 {
+    font-size: 40px;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid #2196f3;
 }
 
 @media only screen and (max-width:767px) {
@@ -121,8 +136,7 @@ body {
 }
 
 @media only screen and (max-width:420px) {
-    .main-section .main-register .mentor button {
-    }
+    .main-section .main-register .mentor button {}
 }
 
 .create-project {
