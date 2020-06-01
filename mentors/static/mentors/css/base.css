@@ -155,6 +155,7 @@ body {
     padding: 15px 0 0 15px;
     font-size: 15px;
     line-height: 26px;
+    text-align: justify;
 }
 
 .top-footer p a {
@@ -165,7 +166,11 @@ body {
 }
 
 .top-footer p a:hover {
-    opacity: 0.7;
+    opacity: 0.8;
+}
+
+.move-top {
+    float: right;
 }
 
 .top-footer .fab {
