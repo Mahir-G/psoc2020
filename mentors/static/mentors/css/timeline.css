@@ -302,6 +302,9 @@
     .featured-schedule-collection {
         border-radius: 0;
     }
+    .featured-schedule-collection:before {
+        left: 516px;
+    }
     .featured-schedule-collection .schedule-box .links:nth-child(even) {
         float: none;
     }
