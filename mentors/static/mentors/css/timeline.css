@@ -1,9 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&family=Baloo+Paaji+2:wght@400;500;600&family=Comfortaa:wght@400;500;600;700&family=Montserrat:wght@100;400;500&family=Quicksand:wght@300;400;500&family=Raleway:wght@300;400;500;600&display=swap');
 .timeline {
     overflow-x: hidden;
-    padding: 4rem 0;
+    padding: 6rem 0;
     /* background: linear-gradient(to right, #43b8e5, #2196f3, #43b8e5); */
     background: #fff;
+    z-index: 2;
+}
+
+.timeline-head {
+    font-family: 'Quicksand';
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 35%;
+    margin-top: 1rem;
+}
+
+.timeline-head h1 {
+    font-size: 50px;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid #2196f3;
 }
 
 .container-schedule {
@@ -193,13 +208,10 @@
 }
 
 .featured-schedule-collection .schedule-box .links .time h3:hover {
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
     color: ;
-}
-
-.featured-schedule-collection .schedule-box .links .time h3:hover {
     cursor: default;
     -webkit-text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
     text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
@@ -214,6 +226,10 @@
     -webkit-transition: 200ms linear;
     -o-transition: 200ms linear;
     transition: 400ms;
+    color: ;
+    cursor: default;
+    -webkit-text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.2);
+    text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.2);
 }
 
 .featured-schedule p {
@@ -283,7 +299,7 @@
     }
     .timeline-head {
         margin-bottom: 1.5rem;
-        padding: 0 30%;
+        padding: 0 20%;
         margin-top: 0.5rem;
     }
     .timeline-head h1 {
@@ -358,7 +374,7 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
     .featured-schedule-collection .schedule-box {
         width: 100%;
     }
@@ -373,5 +389,19 @@
     .timeline-head h1 {
         font-size: 32px;
         padding-bottom: 1.1rem;
+    }
+    .featured-schedule-collection .schedule-box .links .time h3:hover {
+        -webkit-text-shadow: none;
+        text-shadow: none;
+    }
+    .featured-schedule h3 {
+        -webkit-text-shadow: none;
+        text-shadow: none;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .timeline {
+        padding-top: 2rem;
     }
 }

@@ -63,14 +63,16 @@ body {
 
 .main-section h2 {
     font-family: 'Quicksand';
+    padding-top: 2rem;
 }
 
 .main-section h5 {
     font-family: 'Quicksand';
     font-size: 18px;
-    width: 650px;
-    line-height: 28px;
+    width: 620px;
+    line-height: 30px;
     letter-spacing: 1px;
+    padding-top: 0.5rem;
 }
 
 .main-section .main-register h3 {
@@ -92,20 +94,6 @@ body {
 
 .main-section .main-register .mentor {
     margin-right: 2rem;
-}
-
-.timeline-head {
-    font-family: 'Quicksand';
-    text-align: center;
-    margin-bottom: 4rem;
-    padding: 0 40%;
-    margin-top: 1rem;
-}
-
-.timeline-head h1 {
-    font-size: 40px;
-    padding-bottom: 1.1rem;
-    border-bottom: 1px solid #2196f3;
 }
 
 @media only screen and (max-width:767px) {
