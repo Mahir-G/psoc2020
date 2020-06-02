@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{% static 'mentors/css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'mentors/css/base.css' %}" />
 <link rel="stylesheet" href="{% static 'mentors/css/timeline.css' %}" />
+<link rel="stylesheet" href="{% static 'mentors/css/about.css' %}" />
 <section class="home-section pt-4 pb-5">
   <div class="container">
     <div class="row align-items-center">
@@ -39,6 +40,43 @@
       </div>
     </div>
   </div>
+</section>
+<section class="about-psoc">
+    <div class="sub-about container">
+        <div class="row">
+            <div class="about-content col-lg-7">
+                <h1>About PSoC</h1>
+                <p>PClub Summer of Code is the 2 month long Open Source program during 
+                summers conducted by Programming Club, UIET, with an aim to help beginners 
+                get started with Open Source Development while encouraging diversity. 
+                Throughout the program, participants contribute to different projects under 
+                guidance of experienced mentors. Mentors get to make their ideas alive and 
+                Mentees get to learn tech.                
+                <br><br>
+                PSoC is targeted at audience who want to dwell 
+                in OpenSource Development as well as who are already into FOSS development. 
+                This program will help students for other opensource programs like Gsoc, Outreachy, etc.                
+                </p>
+                <div class="manuals">
+                    <a href="{% static 'mentors/img/PSoC_Mentor_Manual.pdf' %}" class="mentor-manual btn btn-primary mb-3" target="_blank">
+                        Download Mentor Manual
+                    </a>
+                    <a href="{% static 'mentors/img/PSOC_student_manual.pdf' %}" target="_blank" class="mb-3">
+                        <button class="mentee-manual btn btn-primary" disabled>Download Mentee Manual</button>
+                    </a>
+                </div>                    
+            </div>
+            <div class="psoc-logo">
+                <img src="{% static 'mentors/img/psoc-logo.png' %}">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="home-bg">
+    <div class="about-bg">
+        {% comment %} <img src="{% static 'mentors/img/pclub-members.jpeg' %}">  {% endcomment %}
+    </div>
+    <div class="color-overlay"></div>
 </section>
 <section class="timeline">
             <div class="timeline-head">
