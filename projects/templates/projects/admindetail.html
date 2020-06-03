@@ -14,6 +14,7 @@
                     <h6>Mentor: {{ project.mentor.user.username }}</h6>
                     <div class="mentor-email">
                         <h6>Email: {{ project.mentor.user.email }}</h6>
+                        <h6>CV: <a href="{{ project.mentor.cv.url }}" target="_blank"> Resume</a></h6>
                         {% comment %} <hr> {% endcomment %}
                     </div>
                     {% comment %} <hr> {% endcomment %}
