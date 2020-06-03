@@ -6,7 +6,7 @@ from mentors.models import Mentor
 class Project(models.Model):
         title = models.CharField(max_length=80, default='')
         description = models.TextField(default='')
-        code = models.CharField(max_length=5, default='')
+        code = models.CharField(max_length=8, default='')
         stack = models.CharField(max_length=100, default='')
         mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
         is_approved = models.BooleanField(default=False)
