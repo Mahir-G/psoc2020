@@ -1,19 +1,116 @@
-{% extends "mentors/base.html" %}
-{% block body_block %}
-    <div class = "container">
-        <div class="jumbotron">
-            {% if registered %}
-                <h1>Thank you for registering!</h1>
-                <a href="{% url 'user_login' %}">Login</a>
-            {% else %}
-                <h1>Register Here</h1>
-                <h3>Just fill out the form.</h3>
-                <form enctype="multipart/form-data" method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" name="" value="Register">
-                </form>
-            {% endif %}
+{% extends "mentors/base.html" %} {% load static %} {% block body_block %}
+<link rel="stylesheet" href="{% static 'mentors/css/style-sign-up.css' %}" />
+    <div class = "container mt-3 mb-4">
+        {% if registered %}
+        <div class='container registered pt-5'>
+            <h1>Thank you for registering!</h1>
+            <a href="{% url 'user_login' %}" class="btn btn-primary">Login</a>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="mentor-descrip pt-5 pb-5 col-lg-6">
+                <h1>After Registering Mentee should proceed as follows -</h1>
+                <ul>
+                    <li>After loging in Check for the projects in Projects Section and chooses the one you are interested in.</li>
+                    <li>Mentee can select upto 3 projects of his/her like and submit proposals for the same. </li>
+                    <li>Mentee should submit the public link of the pdf while submitting for a project.</li>
+                    <li>The status of the proposals submitted can be viewed in the Dashboard.</li>
+                    <li>If a proposal gets accepted, the application will automatically be removed from other projects.</li>
+                    <li>For any queries, reach out to us at <a href="mailto: pclubuiet@gmail.com">pclubuiet@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="signup-form pt-5 pb-5 ">
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <h2>Sign Up as Mentee</h2>
+                <p>Please fill in this form to create an account!</p>
+                <hr />
+                <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon p-2"><i class="fa fa-user"></i></span>
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    placeholder="Username"
+                    required="required"
+                    />
+                </div>
+                </div>
+                <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon p-2"
+                    ><i class="fa fa-paper-plane"></i
+                    ></span>
+                    <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Email Address"
+                    required="required"
+                    />
+                </div>
+                </div>
+                <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon p-2"><i class="fa fa-lock"></i></span>
+                    <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required="required"
+                    />
+                </div>
+                </div>
+                <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon p-2">
+                    <i class="fa fa-lock"></i>
+                    <i class="fa fa-check pt-1"></i>
+                    </span>
+                    <input
+                    type="password"
+                    class="form-control"
+                    id="confirm_password"
+                    name="confirm_password"
+                    placeholder="Confirm Password"
+                    required="required"
+                    />
+                </div>
+                </div>
+                <div class="form-group checkbox-form">
+                <label class="checkbox-inline p-"
+                    ><input type="checkbox" required="required" /> I accept the
+                    <a href="#">Terms of Use</a> &amp;
+                    <a href="#">Privacy Policy</a></label
+                >
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                </div>
+            </form>
+            <div class="text-center">
+                Already have an account? <a href="{% url 'user_login' %}">Login here</a>
+            </div>
         </div>
     </div>
+    {% endif %}
+</div>
+<script>
+    var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword(){
+    if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+        confirm_password.setCustomValidity('');
+    }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
 {% endblock %}
