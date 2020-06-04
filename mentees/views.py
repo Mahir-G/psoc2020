@@ -40,10 +40,13 @@ class Register(View):
 #view for handling the dashboard for mentee.
 class DashBoard(View):
     template_name = 'mentees/dashboard.html'
+    show_button = True
 
     def get(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentee'):
-            return render(request, 'mentees/dashboard.html', {})
+            if request.user.mentee.projects.all().count()>=3:
+                self.show_button = False
+            return render(request, 'mentees/dashboard.html', {'show_button': self.show_button})
         else:
             return HttpResponse("You are not a mentee")
 

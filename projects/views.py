@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
 from .models import Project
+from mentees.models import Proposal
 
 
 #view for the main page
@@ -27,8 +28,10 @@ class Index(View):
 class ProjectDetail(View):
     template_name = 'projects/detail.html'
     is_mentee = False
+    is_mentor = False
     is_max_count_not_reached = True
     already_applied = False
+    proposal_list = {}
 
     def get(self, request, *args, **kwargs):
         project = Project.objects.get(pk=kwargs['pk'])
@@ -38,15 +41,23 @@ class ProjectDetail(View):
                 self.is_max_count_not_reached = False
             if project in request.user.mentee.projects.all():
                 self.already_applied = True
-        return render(request, self.template_name, {'project': project, 'is_mentee': self.is_mentee, 'not_reached': self.is_max_count_not_reached, 'already_applied': self.already_applied})
+        if hasattr(request.user, 'mentor'):
+            self.is_mentor = True
+            for proposal in project.proposal_set.all():
+                self.proposal_list[proposal.mentee.user.username] = proposal.proposal_link
+        return render(request, self.template_name, {'project': project, 'is_mentee': self.is_mentee,'is_mentor': self.is_mentor, 'not_reached': self.is_max_count_not_reached, 'already_applied': self.already_applied, 'proposals': self.proposal_list})
 
     def post(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentee'):
             mentee = request.user.mentee
             project = Project.objects.get(pk=kwargs['pk'])
+            proposal_link = request.POST.get('proposal_link')
             
             if mentee.projects.all().count()<3:
                 mentee.projects.add(project)
+                proposal = Proposal(mentee=mentee, project=project, proposal_link=proposal_link)
+                proposal.save()
+                print(proposal)
                 return HttpResponseRedirect(reverse('projects:detail', args=(project.id,)))
             else:
                 return HttpResponse("Cannot apply for another project.")

@@ -6,6 +6,41 @@
     <button type="button">
         <a href="" class="btn btn-primary">Apply for project</a>
     </button>
+    <div class="container">
+        <div class="row">
+          {% for project in user.mentee.projects.all %}
+      
+          <div class="col-lg-4 col-md-12 justify-content-center mb-5">
+            <div class="card shadow">
+              <div class="inner">
+                <img
+                  src="{% static 'mentors/img/card1.jpg' %}"
+                  class="card-img-top"
+                  alt="..."
+                />
+              </div>
+              <div class="card-body text-center" style="color: black;">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">
+                  {{ project.description }}
+                </p>
+                <!-- <p class="card-text">
+                  Status: {% if project.is_approved %}Approved{% else %}Pending for Approval{% endif %}
+                </p> -->
+                <a href="{% url 'projects:detail' project.id %}" class="btn btn-success">Read More</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    {% if show_button %}
+    <div class="create-project">
+    <button type="button">
+        <a href="{% url 'projects:project_index' %}" class="btn btn-primary">Apply for project</a>
+    </button>
+    {% endif %}
     </div>
 </section>
 {% endblock %}

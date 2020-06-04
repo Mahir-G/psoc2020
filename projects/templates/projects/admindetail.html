@@ -27,7 +27,9 @@
                 <div class="stack"> 
                     <h6>Stack Used: {{ project.stack }}</h6>
                 </div>
+                {% if not project.is_approved %}
                 <input type="submit" value="Approve" class="approve btn btn-primary">
+                {% endif %}
             </form>
         </div>
     </div>
