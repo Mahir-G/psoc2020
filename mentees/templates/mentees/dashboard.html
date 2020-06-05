@@ -1,13 +1,13 @@
 {% extends 'mentors/base.html' %} {% load static %} {% block body_block %}
 <link rel="stylesheet" href="{% static 'mentors/css/base.css' %}" />
 <link rel="stylesheet" href="{% static 'mentors/css/style.css' %}" />
-<section class="home-section pt4 pb-5">
-    <div class="create-project">
+<section class="home-section pt-4 ">
+    {% comment %} <div class="create-project"> {% endcomment %}
     <div class="container">
         <div class="row">
           {% for project in user.mentee.projects.all %}
       
-          <div class="col-lg-4 col-md-12 justify-content-center mb-5">
+          <div class="col-lg-4 col-md-12 justify-content-center">
             <div class="card shadow">
               <div class="inner">
                 <img
@@ -31,14 +31,15 @@
           {% endfor %}
         </div>
       </div>
-    </div>
+    {% comment %} </div> {% endcomment %}
 
     {% if show_button %}
-    <div class="create-project">
+    <div class="create-project mt-5">
     <button type="button">
         <a href="{% url 'projects:project_index' %}" class="btn btn-primary">Apply for project</a>
     </button>
-    {% endif %}
     </div>
+
+    {% endif %}
 </section>
 {% endblock %}
