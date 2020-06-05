@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#qz&g-w*z^@hpm!%^-$fqcnfn2r)egth#=y^re5%_%c!-^4gni'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['3.6.164.160', 'pclubsummerofcode.in', 'www.pclubsummerofcode.in', 'localhost', '127.0.0.1']
 
