@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'soc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'psoc2020',
+        'NAME': 'psoc2020_two',
         'USER': 'psoc2020_admin',
         'PASSWORD': 'psoc2020_whattodo',
         'HOST': 'localhost',
