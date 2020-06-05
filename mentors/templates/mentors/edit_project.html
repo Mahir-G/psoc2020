@@ -1,0 +1,34 @@
+{% extends 'mentors/base.html' %} {% load static %} {% block body_block%}
+<link rel="stylesheet" href="{% static 'mentors/css/create-project.css' %}" />
+    <div class = "section">
+        <div class="container">
+            <div class="descrip-head">
+                <h1>Create Project</h1>
+            </div>
+            <div class="row justify-content-center">
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    <div class="form-input">
+                        <label>Title :</label>
+                        <input type="text" name="title" placeholder="Title of Project"
+                        required="required" autocomplete="off" value="{{ project.title }}">
+                    </div>
+                    <div class="form-input">
+                        <label>Desciption :</label>
+                        <textarea type="text" name="description" cols="60" rows="10" required="required" id="id_description" placeholder="Description of Your Project">{{ project.description }}</textarea>
+                    </div>
+                    <div class="form-input">
+                        <label>Stack :</label>
+                        <input type="text" name="stack" placeholder="Stack Used"
+                        required="required" autocomplete="off"  value="{{ project.stack }}">
+                    </div>
+                    <input type="submit" name="" value="Submit" class="submit btn-primary">
+                    <button type="button"><a href="{% url 'projects:detail' project.id %}" class="btn-primary">Cancel</a></button>
+                </form>
+                <div class="img-bg">
+                    <img src="{% static 'mentors/img/project-2.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

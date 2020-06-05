@@ -196,3 +196,32 @@ class CreateProject(View):
             return HttpResponseRedirect(reverse('mentors:dashboard'))
         else:
             return HttpResponse('You are not a mentor.')
+
+class EditProject(View):
+    template_name = 'mentors/edit_project.html'
+
+    def get(self, request, *args, **kwargs):
+        if hasattr(request.user, 'mentor'):
+            project = Project.objects.get(pk=kwargs['pk'])
+            return render(request, 'mentors/edit_project.html', {"project": project})
+        else:
+            return HttpResponse("You are not a mentor")
+
+    def post(self, request, *args, **kwargs):
+        if hasattr(request.user, 'mentor'):
+            title = request.POST.get('title')
+            description = request.POST.get('description')
+            stack = request.POST.get('stack')
+            project = Project.objects.get(pk=kwargs['pk'])
+
+            if (title!="" and description!="" and stack!="") and request.user.mentor == project.mentor:
+                project.title = title
+                project.description = description
+                project.stack = stack
+                project.save()
+                return HttpResponseRedirect(reverse('projects:detail', args=(project.id,)))
+            else:
+                return HttpResponse("Can only add 3 projects")
+            return HttpResponseRedirect(reverse('mentors:dashboard'))
+        else:
+            return HttpResponse('You are not a mentor.')
