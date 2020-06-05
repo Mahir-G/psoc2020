@@ -2,8 +2,7 @@
 <link rel="stylesheet" href="{% static 'mentors/css/detail.css' %}" />
     <div class="container">
         <div class="detail-section">
-            <form method="post" method="{% url 'projects:detail' project.id %}">
-                {% csrf_token %}
+            
                 <div class="proj-title">
                     <h1>Title: {{ project.title }}</h1>
                     {% comment %} <hr> {% endcomment %}
@@ -26,25 +25,31 @@
                 <div class="stack"> 
                     <h6>Stack Used: {{ project.stack }}</h6>
                 </div>
+                
                 {% if is_mentee %}
                     {% if already_applied %}
                         <p>Already Applied</p>
                     {% else %}
                             {% if not_reached %}
+                            <form method="post" method="{% url 'projects:detail' project.id %}">
+                            {% csrf_token %}
                                 <input type="text" name="proposal_link" placeholder="Enter link of your proposal." required>
                                 <input type="submit" value="Apply for this project.">
+                            </form>
                             {% else %}
                                 <p>Already applied to 3 projects. Cannot apply more.
                                 </p>
                             {% endif %}
                     {% endif %}
                 {% endif %}
+                
 
                 {% if is_mentor %}
                 <div class="card-text">
                     <p>Selected Students:</p>
                     {% for student in project.selected_mentee.all %}
                     <p>{{ student.user.username }}</p>
+                    <p><a href='{{ proposals|get_item:student.user.username }}'>Proposal Link</a></p>
                     {% endfor %}
                   </div>
                   <div class="card-text">
@@ -61,13 +66,13 @@
                         value="{{ student.id }}"
                         style="display: none;"
                       />
-                      <input type="submit" value="Accept Application" disabled />
+                      <input type="submit" value="Accept Application" />
                     </form>
                     {% endif %}
                     {% endfor %}
                   </div>
                 {% endif %}
-            </form>
+            
         </div>
     </div>
 {% endblock %}

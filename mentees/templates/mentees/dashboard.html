@@ -3,9 +3,6 @@
 <link rel="stylesheet" href="{% static 'mentors/css/style.css' %}" />
 <section class="home-section pt4 pb-5">
     <div class="create-project">
-    <button type="button">
-        <a href="" class="btn btn-primary">Apply for project</a>
-    </button>
     <div class="container">
         <div class="row">
           {% for project in user.mentee.projects.all %}
@@ -24,9 +21,9 @@
                 <p class="card-text">
                   {{ project.description }}
                 </p>
-                <!-- <p class="card-text">
-                  Status: {% if project.is_approved %}Approved{% else %}Pending for Approval{% endif %}
-                </p> -->
+                <p class="card-text">
+                  Status: {% if user.mentee.selected == project %}Selected{% else %}Proposal Under Review{% endif %}
+                </p>
                 <a href="{% url 'projects:detail' project.id %}" class="btn btn-success">Read More</a>
               </div>
             </div>
@@ -34,6 +31,7 @@
           {% endfor %}
         </div>
       </div>
+    </div>
 
     {% if show_button %}
     <div class="create-project">

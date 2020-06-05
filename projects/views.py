@@ -57,7 +57,6 @@ class ProjectDetail(View):
                 mentee.projects.add(project)
                 proposal = Proposal(mentee=mentee, project=project, proposal_link=proposal_link)
                 proposal.save()
-                print(proposal)
                 return HttpResponseRedirect(reverse('projects:detail', args=(project.id,)))
             else:
                 return HttpResponse("Cannot apply for another project.")

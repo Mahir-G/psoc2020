@@ -115,7 +115,7 @@ class DashBoard(View):
             if mentee.selected == None:
                 mentee.selected = project
                 mentee.save()
-                return HttpResponseRedirect("{% url 'mentors:dashboard' %}")
+                return HttpResponseRedirect(reverse('projects:detail', args=(project_id,)))
 
             else:
                 return HttpResponse('This mentee is already selected for another project.')
