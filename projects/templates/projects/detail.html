@@ -1,9 +1,9 @@
 {% extends 'mentors/base.html' %} {% load static %} {% load getvaluefromdict %} {% block body_block %}
 <link rel="stylesheet" href="{% static 'mentors/css/detail.css' %}" />
     <div class="container">
+        <a href="{% url 'mentors:edit_project' project.id %}">Edit the project</a>
         <div class="detail-section">
-            <form method="post" method="{% url 'projects:detail' project.id %}">
-                {% csrf_token %}
+            
                 <div class="proj-title">
                     <h1>Title: {{ project.title }}</h1>
                     {% comment %} <hr> {% endcomment %}
@@ -26,48 +26,64 @@
                 <div class="stack"> 
                     <h6>Stack Used: {{ project.stack }}</h6>
                 </div>
+                
                 {% if is_mentee %}
                     {% if already_applied %}
                         <p>Already Applied</p>
                     {% else %}
                             {% if not_reached %}
-                                <input type="text" name="proposal_link" placeholder="Enter link of your proposal." required>
-                                <input type="submit" value="Apply for this project.">
+                            <div class="apply-head">
+                                <h1>Add the link of your proposal below to apply for this project -</h1>
+                            </div>
+                            <form method="post" method="{% url 'projects:detail' project.id %}" class="mentee-apply">
+                            {% csrf_token %}
+                                <input type="text" class="mentee-link" name="proposal_link" placeholder="Your proposal link" required>
+                                <input type="submit" class="mentee-submit btn btn-primary" value="Apply">
+                            </form>
                             {% else %}
                                 <p>Already applied to 3 projects. Cannot apply more.
                                 </p>
                             {% endif %}
                     {% endif %}
                 {% endif %}
+                
 
                 {% if is_mentor %}
-                <div class="card-text">
-                    <p>Selected Students:</p>
+            <div class="students">
+                <div class="card-text selected-list">
+                    <p class="app-head">Selected Students:</p>
                     {% for student in project.selected_mentee.all %}
-                    <p>{{ student.user.username }}</p>
+                    <div class="student">
+                        <p>{{ student.user.username }}</p>
+                        <p><a href='{{ proposals|get_item:student.user.username }}'>Proposal Link</a></p>
+                    </div>
                     {% endfor %}
                   </div>
-                  <div class="card-text">
-                    <p>Applicants:</p>
+                  <div class="card-text applicant-list">
+                    <p class="select-head">Applicants:</p>
                     {% for student in project.mentee_applications.all %} 
                     {% if student.selected == NULL %}
-                    <form method="post" action="{% url 'mentors:dashboard' %}">
-                      {% csrf_token %}
-                      <p>{{ student.user.username }}</p>
-                      <p><a href='{{ proposals|get_item:student.user.username }}'>Proposal Link</a></p>
-                      <input name="project" value="{{ project.id }}" style="display: none;" />
-                      <input
-                        name="mentee_id"
-                        value="{{ student.id }}"
-                        style="display: none;"
-                      />
-                      <input type="submit" value="Accept Application" disabled />
-                    </form>
+                    <div class="student">
+                        <form method="post" action="{% url 'mentors:dashboard' %}">
+                        {% csrf_token %}
+                        <div class="app-detail">
+                            <p>{{ student.user.username }}</p>
+                            <p><a href='{{ proposals|get_item:student.user.username }}'>Proposal Link</a></p>
+                        </div>
+                        <input name="project" value="{{ project.id }}" style="display: none;" />
+                        <input
+                            name="mentee_id"
+                            value="{{ student.id }}"
+                            style="display: none;"
+                        />
+                        <input type="submit" value="Accept Application" class="btn btn-primary" />
+                        </form>
+                    </div>
                     {% endif %}
                     {% endfor %}
                   </div>
                 {% endif %}
-            </form>
+            </div>
         </div>
     </div>
 {% endblock %}
