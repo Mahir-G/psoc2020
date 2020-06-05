@@ -3,24 +3,105 @@ body {
 }
 
 .detail-section {
+    padding: 2rem 4rem;
     font-family: 'Quicksand';
-    width: 80%;
+    width: 70%;
     margin: 4rem auto 4rem auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 19px 58px rgba(0, 0, 0, 0.60), 0 15px 12px rgba(0, 0, 0, 0.22);
     /* color: white; */
     /* text-align: center; */
 }
 
-form {
-    border: 1px solid #ccc;
-    padding: 2rem;
-    border-radius: 20px;
-    background: #fff;
+.mentee-apply {
+    font-family: 'Quicksand';
+    display: flex;
+    /* border: 1px solid #ccc; */
+    /* padding: 2rem; */
+    /* border-radius: 20px; */
+    /* background: #fff; */
+    padding: 0 0.5rem;
+}
+
+form .mentee-link {
+    padding: 0.4rem 1rem;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 0.35rem;
+    margin-right: 1rem;
+    box-shadow: 0 19px 58px rgba(0, 0, 0, 0.10), 0 15px 12px rgba(0, 0, 0, 0.1);
+}
+
+form .mentee-submit {
+    padding: 0.35rem 2.5rem;
+}
+
+.apply-head {
+    padding: 3rem 0.55rem 1rem;
+}
+
+.apply-head h1 {
+    font-size: 20px;
+    letter-spacing: 0.05rem;
+}
+
+.students {
+    padding: 4rem 0rem;
+    border-radius: 0.25rem;
+    /* display: flex; */
+}
+
+.selected-list {
+    padding-left: 0.5rem;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 2rem;
+}
+
+.applicant-list {
+    padding-left: 0.5rem;
+    padding-top: 2rem;
+    /* margin-left: auto; */
+}
+
+.app-head {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.select-head {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.students p {
+    margin: 0;
+    padding: 0;
+}
+
+.student {
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.student p {
+    margin-bottom: 0.4rem;
+    margin-right: 1rem;
+}
+
+.student form .app-detail {
+    display: flex;
+}
+
+.student form p {
+    margin-top: 0.5rem;
 }
 
 .proj-title h1 {
-    font-family: 'Comfortaa';
+    font-family: 'Quicksand';
     font-size: 40px;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 h6, p {
@@ -104,5 +185,27 @@ hr {
     }
     .description p {
         font: 13px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        padding: 0;
+    }
+    .detail-section {
+        margin-top: 0;
+        padding-top: 3rem;
+        width: 100%;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+    .app-head {
+        font-size: 18px;
+    }
+    .select-head {
+        font-size: 18px;
+    }
+    form .btn-primary {
+        font-size: 14px;
     }
 }
