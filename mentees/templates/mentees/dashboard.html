@@ -7,7 +7,7 @@
         <div class="row">
           {% for project in user.mentee.projects.all %}
       
-          <div class="col-lg-4 col-md-12 justify-content-center">
+          <div class="col-lg-4 col-md-12 justify-content-center mb-5">
             <div class="card shadow">
               <div class="inner">
                 <img
@@ -19,7 +19,7 @@
               <div class="card-body text-center" style="color: black;">
                 <h5 class="card-title">{{ project.title }}</h5>
                 <p class="card-text">
-                  {{ project.description }}
+                  {{ project.description|slice:":100"|add:" ..." }}
                 </p>
                 <p class="card-text">
                   Status: {% if user.mentee.selected == project %}Selected{% else %}Proposal Under Review{% endif %}
