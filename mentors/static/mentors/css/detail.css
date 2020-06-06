@@ -65,12 +65,12 @@ form .mentee-submit {
 }
 
 .app-head {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .select-head {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -121,6 +121,7 @@ h6 {
     padding-top: 0;
     color: #444;
     margin-bottom: 4rem;
+    text-align: justify;
     /* color: #ccc; */
 }
 
@@ -147,6 +148,12 @@ hr {
 
 .stack h6 {
     padding-top: 0;
+    text-align: justify;
+}
+
+.stack h6 span {
+    font-weight: normal;
+    font-size: 16px;
 }
 
 .approve {
@@ -194,10 +201,19 @@ hr {
     }
     .detail-section {
         margin-top: 0;
-        padding-top: 3rem;
+        padding: 2rem 1rem;
         width: 100%;
         border-radius: 0;
         margin-bottom: 0;
+    }
+    .proj-title h1 {
+        margin-bottom: 0.5rem;
+    }
+    .description {
+        margin-top: 1.5rem;
+    }
+    .description p{
+        margin-bottom: 2rem;
     }
     .app-head {
         font-size: 18px;

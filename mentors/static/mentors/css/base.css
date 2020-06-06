@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&family=Baloo+Paaji+2:wght@400;500;600&family=Comfortaa:wght@400;500;600;700&family=Montserrat:wght@100;400;500&family=Quicksand:wght@300;400;500&family=Raleway:wght@300;400;500;600&display=swap');
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     overflow-x: hidden;
 }
 
@@ -210,7 +210,7 @@ body {
 } */
 
 .top-footer h3 {
-    font-family: 'Comfortaa';
+    font-family: 'Quicksand';
     color: white;
 }
 

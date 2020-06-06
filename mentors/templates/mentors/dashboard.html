@@ -18,7 +18,7 @@
         <div class="card-body text-center" style="color: black;">
           <h5 class="card-title">{{ project.title }}</h5>
           <p class="card-text">
-            {{ project.description }}
+            {{ project.description|slice:":100"|add:" ..." }}
           </p>
           <p class="card-text">
             Status: {% if project.is_approved %}Approved{% else %}Pending for Approval{% endif %}

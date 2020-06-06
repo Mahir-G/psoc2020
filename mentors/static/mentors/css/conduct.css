@@ -1,0 +1,113 @@
+.partners {
+    margin: 1rem auto 5rem;
+    /* border-top: 2px solid rgba(33, 150, 243, 0.8); */
+    /* border-bottom: 2px solid #ccc; */
+    width: 50%;
+}
+
+hr {
+    background-color: rgba(33, 150, 243, 0.5);
+    border-radius: 50%;
+    height: 2px;
+    margin-bottom: 2rem;
+}
+
+.partners h1 {
+    font-family: 'Quicksand';
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.partners img {
+    margin-left: 50%;
+    width: 300px;
+    transform: translateX(-50%);
+}
+
+.conduct {
+    font-family: 'Quicksand';
+    padding: 2rem 0rem 4rem;
+    background-image: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%);
+    /* background: #FAFAFA; */
+}
+
+.conduct-body {
+    color: #fff;
+    max-width: 900px;
+    margin: 0 auto;
+    transition: 0.4s;
+    padding: 3rem 3rem 0;
+    border-radius: 20px;
+    cursor: default;
+}
+
+.conduct-body:hover {
+    /* box-shadow: 0 19px 58px rgba(0, 0, 0, 0.60), 0 15px 12px rgba(0, 0, 0, 0.22); */
+}
+
+.conduct-head {
+    width: 100%;
+}
+
+.conduct-head h1 {
+    text-align: center;
+    /* color: #323236; */
+    font-size: 35px;
+}
+
+.conduct-descrip {
+    padding: 1.5rem 0rem 2rem;
+}
+
+.conduct-descrip h3 {
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+
+.conduct-descrip ul li {
+    margin-top: 0.5rem;
+}
+
+.conduct-descrip p {
+    font-size: 17px;
+    text-align: justify;
+    line-height: 31px;
+    /* color: #454; */
+    color: #ccc;
+}
+
+@media only screen and (max-width:502px) {
+    .conduct-head h1 {
+        font-size: 30px;
+    }
+    .conduct-descrip h3 {
+        font-size: 16px;
+    }
+    .conduct-descrip p {
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0;
+    }
+    .conduct-descrip ul {
+        padding-left: 1rem;
+    }
+    .conduct-descrip ul li {
+        font-size: 15px;
+    }
+    .conduct-body {
+        padding: 1rem 1.5rem 0;
+    }
+}
+
+@media only screen and (max-width:420px) {
+    .partners {
+        width: 80%;
+    }
+    .partners h1 {
+        font-size: 28px;
+        margin-bottom: 1rem;
+    }
+    .partners img {
+        width: 200px;
+    }
+}
