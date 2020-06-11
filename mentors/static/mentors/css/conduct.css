@@ -93,7 +93,34 @@ hr {
     color: #ccc;
 }
 
+@media only screen and (max-width:992px) {
+    .partners {
+        margin: 0rem auto 2rem;
+    }
+    hr {
+        margin-bottom: 0rem;
+    }
+    .partners img {
+        width: 150px;
+    }
+    .g-tech img {
+        width: 300px;
+    }
+    .partners h2 {
+        transform: none;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
+    }
+    .image-control {
+        margin-bottom: 1rem;
+    }
+}
+
 @media only screen and (max-width:502px) {
+    .image-control {
+        margin-top: 0;
+        margin-bottom: 0rem;
+    }
     .conduct-head h1 {
         font-size: 30px;
     }
@@ -120,11 +147,19 @@ hr {
     .partners {
         width: 80%;
     }
-    .partners h1 {
-        font-size: 28px;
-        margin-bottom: 1rem;
+    hr {
+        margin-top: 0;
     }
     .partners img {
+        width: 150px;
+    }
+    .g-tech img {
         width: 200px;
+    }
+    .partners h2 {
+        font-size: 25px;
+    }
+    .image-control {
+        margin-bottom: 1.5rem;
     }
 }
