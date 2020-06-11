@@ -62,8 +62,8 @@
                     <a href="{% static 'mentors/img/PSoC_Mentor_Manual.pdf' %}" class="mentor-manual btn btn-primary mb-3" target="_blank">
                         Download Mentor Manual
                     </a>
-                    <a href="{% static 'mentors/img/PSOC_student_manual.pdf' %}" target="_blank" class="mb-3">
-                        <button class="mentee-manual btn btn-primary" disabled>Download Mentee Manual</button>
+                    <a href="{% static 'mentors/img/PSoC_Mentee_Manual.pdf' %}" target="_blank" class="mb-3">
+                        <button class="mentee-manual btn btn-primary">Download Mentee Manual</button>
                     </a>
                 </div>                    
             </div>
@@ -122,11 +122,11 @@
                                             <h2><span>Mentor Registration Ends</span></h2>
                                             <br />
                                             <p>
-                                                Mentors must register themselves by 10th June, 2020.
+                                                Mentors must register themselves by 12th June, 2020.
                                             </p>
                                         </div>
                                         <div class="time time-2">
-                                            <h3>10 June, 2020</h3>
+                                            <h3>12 June, 2020</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -248,13 +248,22 @@
             </div>
 </section>  
 <section class="partners">
+    {% comment %} <h1>2020 Partners</h1> {% endcomment %}
     <hr>
-    <div>
-        <h1>Outreach Partner</h1>
-        <img src="{% static 'mentors/img/internwell.png' %}">
+    <div class="row partners-descrip">
+        <h2>In-kind Partners</h4>
+        <div class="image-control col-lg-6 g-tech">
+            <img src="{% static 'mentors/img/GirlscriptTech.png' %}">
+        </div>
+        <div class="image-control col-lg-6">
+            <img src="https://balsamiq.com/assets/company/brandassets/balsamiq-logo-screen.svg">
+        </div>
+        <h2>Outreach Partner</h4>
+        <div class="image-control col-lg-12">
+            <img src="{% static 'mentors/img/internwell.png' %}">
+        </div>
     </div>
 </section>
-
 <section class="conduct">
 <a name="conduct">
     <div class="conduct-body">
@@ -295,4 +304,7 @@
         </div>
     </div>
 </section>
+<script>
+  alert("Mentor application period extended till 12 June")
+</script>
 {% endblock %}
