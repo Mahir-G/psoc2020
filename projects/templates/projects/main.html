@@ -25,7 +25,7 @@
           </button></a
         >
         <a href="{% url 'mentees:register' %}">
-        <button class="btn btn-lg mb-3" disabled >
+        <button class="btn btn-lg mb-3">
             Mentee
           </button></a
         >
@@ -140,7 +140,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-3">
-                                            <h3>12 June, 2020</h3>
+                                            <h3>13 June, 2020</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -251,14 +251,17 @@
     {% comment %} <h1>2020 Partners</h1> {% endcomment %}
     <hr>
     <div class="row partners-descrip">
-        <h2>In-kind Partners</h4>
+        <h2>In-kind Partners</h2>
         <div class="image-control col-lg-6 g-tech">
             <img src="{% static 'mentors/img/GirlscriptTech.png' %}">
         </div>
         <div class="image-control col-lg-6">
             <img src="https://balsamiq.com/assets/company/brandassets/balsamiq-logo-screen.svg">
         </div>
-        <h2>Outreach Partner</h4>
+        <div class="image-control col-lg-12">
+            <img src="{% static 'mentors/img/BUGSEE-logo.png' %}">
+        </div>
+        <h2>Outreach Partner</h2>
         <div class="image-control col-lg-12">
             <img src="{% static 'mentors/img/internwell.png' %}">
         </div>
@@ -304,7 +307,4 @@
         </div>
     </div>
 </section>
-<script>
-  alert("Mentor application period extended till 12 June")
-</script>
 {% endblock %}
