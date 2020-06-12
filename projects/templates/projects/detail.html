@@ -24,7 +24,7 @@
                 <div class="stack"> 
                     <h6>Stack Used: <span>{{ project.stack }}</span></h6>
                 </div>
-                <a href="{% url 'mentors:edit_project' project.id %}" style="padding-left:0.5rem;">Edit the project</a>                
+                {% comment %} <a href="{% url 'mentors:edit_project' project.id %}" style="padding-left:0.5rem;">Edit the project</a>                 {% endcomment %}
                 {% if is_mentee %}
                     {% if already_applied %}
                         <p>Already Applied</p>
