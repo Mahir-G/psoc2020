@@ -55,11 +55,11 @@
   </div>
 </div>
 {% if show_button %}
-<div class="create-project">
+{% comment %} <div class="create-project">
   <button type="button">
     <a href="{% url 'mentors:create_project' %}" class="btn btn-primary">Create new project</a>
   </button>
-</div>
+</div> {% endcomment %}
 {% endif %}
 </section>
 {% endblock %}
