@@ -1,6 +1,6 @@
 .partners {
     font-family: 'Quicksand';
-    margin: 3rem auto 1rem;
+    margin: 3rem auto 4rem;
     /* border-top: 2px solid rgba(33, 150, 243, 0.8); */
     /* border-bottom: 2px solid #ccc; */
     width: 50%;
@@ -10,7 +10,6 @@ hr {
     background-color: rgba(33, 150, 243, 0.5);
     border-radius: 50%;
     height: 1.5px;
-    margin-bottom: 4rem;
 }
 
 .partners h1 {
@@ -31,14 +30,14 @@ hr {
 .partners h2 {
     width: 100%;
     text-align: center;
-    transform: translateX(-20px);
     margin-bottom: 2rem;
     color: #333;
     font-weight: bold;
+    margin-top: 3rem;
 }
 
 .image-control {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
 .conduct {
@@ -107,7 +106,6 @@ hr {
         width: 300px;
     }
     .partners h2 {
-        transform: none;
         margin-bottom: 2rem;
         margin-top: 3rem;
     }
@@ -143,7 +141,7 @@ hr {
     }
 }
 
-@media only screen and (max-width:420px) {
+@media only screen and (max-width:450px) {
     .partners {
         width: 80%;
     }
@@ -160,6 +158,6 @@ hr {
         font-size: 25px;
     }
     .image-control {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 }
