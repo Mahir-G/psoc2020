@@ -10,6 +10,7 @@ body {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 19px 58px rgba(0, 0, 0, 0.60), 0 15px 12px rgba(0, 0, 0, 0.22);
+    overflow-wrap: break-word;
     /* color: white; */
     /* text-align: center; */
 }
@@ -118,6 +119,7 @@ h6 {
 
 .description p {
     font-size: 15px;
+    overflow-wrap: break-word;
     padding-top: 0;
     color: #444;
     margin-bottom: 4rem;
@@ -148,12 +150,13 @@ hr {
 
 .stack h6 {
     padding-top: 0;
-    text-align: justify;
+    text-align: left;
 }
 
 .stack h6 span {
     font-weight: normal;
     font-size: 16px;
+    overflow-wrap: break-word;
 }
 
 .approve {
@@ -212,7 +215,7 @@ hr {
     .description {
         margin-top: 1.5rem;
     }
-    .description p{
+    .description p {
         margin-bottom: 2rem;
     }
     .app-head {
