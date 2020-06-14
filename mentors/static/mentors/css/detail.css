@@ -27,11 +27,11 @@ body {
 
 form .mentee-link {
     padding: 0.4rem 1rem;
-    outline: none;
+    /* outline: none; */
     border: 1px solid #aaa;
     border-radius: 0.35rem;
     margin-right: 1rem;
-    box-shadow: 0 19px 58px rgba(0, 0, 0, 0.10), 0 15px 12px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 19px 58px rgba(0, 0, 0, 0.02), 0 15px 12px rgba(0, 0, 0, 0.02); */
 }
 
 form .mentee-submit {
@@ -168,6 +168,16 @@ hr {
     padding-bottom: 1rem;
 }
 
+.reference {
+    margin: 2rem 0 1.5rem;
+}
+
+.reference p {
+    font-size: 15px;
+    padding: 0.2rem 0.7rem;
+    margin: 0;
+}
+
 @media only screen and (max-width:768px) {
     .detail-section {
         width: 90%;
@@ -226,5 +236,20 @@ hr {
     }
     form .btn-primary {
         font-size: 14px;
+    }
+    .apply-head {
+        padding-top: 0.5rem;
+    }
+    .apply-head h1 {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width:420px){
+    .mentee-apply {
+        display: block;
+    }
+    .mentee-apply .mentee-submit {
+        margin-top: 1rem;
     }
 }
