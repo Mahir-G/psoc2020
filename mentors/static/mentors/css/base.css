@@ -128,7 +128,7 @@ body {
 }
 
 .create-project {
-    height: 200px;
+    height: 130px;
     text-align: center;
 }
 
@@ -141,6 +141,16 @@ body {
 
 .create-project button a {
     padding: .5rem 1.75rem;
+}
+
+.reference {
+    font-family: 'Quicksand';
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.reference p {
+
 }
 
 /*END: SECTION */

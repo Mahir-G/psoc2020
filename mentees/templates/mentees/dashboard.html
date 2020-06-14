@@ -30,11 +30,15 @@
           </div>
           {% endfor %}
         </div>
+        <div class="reference">
+          <p>You can refer <a href="https://www.youtube.com/watch?v=929VTAFi9EI&feature=youtu.be">how to make a proposal</a></p>
+          <p>Here is an <a href="https://drive.google.com/file/d/1KxZV0PYFql7nFsjjadY-x7vOwcKHgmwz/view?usp=drivesdk">Example Proposal</a></p>
+        </div>
       </div>
     {% comment %} </div> {% endcomment %}
 
     {% if show_button %}
-    <div class="create-project mt-5">
+    <div class="create-project">
     <button type="button">
         <a href="{% url 'projects:project_index' %}" class="btn btn-primary">Apply for project</a>
     </button>
