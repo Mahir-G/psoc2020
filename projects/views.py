@@ -48,6 +48,7 @@ class ProjectDetail(View):
                     for proposal in project.proposal_set.all():
                         self.proposal_list[proposal.mentee.user.username] = proposal.proposal_link
             return render(request, self.template_name, {'project': project, 'is_mentee': self.is_mentee,'is_mentor': self.is_mentor, 'not_reached': self.is_max_count_not_reached, 'already_applied': self.already_applied, 'proposals': self.proposal_list})
+        return HttpResponse("Error 404: Page not Found")
 
     def post(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentee'):
