@@ -8,6 +8,28 @@ body {
     overflow-x: hidden;
 }
 
+/* alert */
+
+.alert-sec {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.alert {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    z-index: 10;
+    text-align: center;
+    max-width: 500px;
+}
+
+.alert-dismissible .close {
+    top: -3px;
+}
+
+/* alert close */
+
 .myrows {
     border: 3px solid green;
     padding: 5px;
@@ -124,7 +146,9 @@ body {
 }
 
 @media only screen and (max-width:420px) {
-    .main-section .main-register .mentor button {}
+    .alert {
+        font-size: 13px;
+    }
 }
 
 .create-project {
@@ -149,9 +173,7 @@ body {
     margin-top: 2rem;
 }
 
-.reference p {
-
-}
+.reference p {}
 
 /*END: SECTION */
 
