@@ -41,6 +41,7 @@
                   <div class="card-text applicant-list">
                     <p class="select-head">Applicants:</p>
                     {% for student in project.mentee_applications.all %}
+                    {% if student.selected == NULL %}
                     <div class="student">
                         <form method="post" action="{% url 'mentors:dashboard' %}">	
                         {% csrf_token %}	
