@@ -25,29 +25,6 @@
                     <h6>Stack Used: <span>{{ project.stack }}</span></h6>
                 </div>
                 {% comment %} <a href="{% url 'mentors:edit_project' project.id %}" style="padding-left:0.5rem;">Edit the project</a>                 {% endcomment %}
-                <!-- {% if is_mentee %}
-                    {% if already_applied %}
-                        <p>Already Applied</p>
-                    {% else %}
-                            {% if not_reached %}
-                            <div class="apply-head">
-                                <h1>Add the link of your proposal below to apply for this project -</h1>
-                            </div>
-                            <form method="post" method="{% url 'projects:detail' project.id %}" class="mentee-apply">
-                            {% csrf_token %}
-                                <input type="text" class="mentee-link" name="proposal_link" placeholder="Your proposal link" required>
-                                <input type="submit" class="mentee-submit btn btn-primary" value="Apply">
-                            </form>
-                            <div class="reference">
-                                <p>You can refer <a href="https://www.youtube.com/watch?v=929VTAFi9EI&feature=youtu.be">how to make a proposal</a></p>
-                                <p>Here is an <a href="https://drive.google.com/file/d/1KxZV0PYFql7nFsjjadY-x7vOwcKHgmwz/view?usp=drivesdk">Example Proposal</a></p>
-                            </div>
-                            {% else %}
-                                <p>Already applied to 3 projects. Cannot apply more.
-                                </p>
-                            {% endif %}
-                    {% endif %}
-                {% endif %} -->
                 
 
                 {% if is_mentor %}
@@ -65,20 +42,12 @@
                     <p class="select-head">Applicants:</p>
                     {% for student in project.mentee_applications.all %} 
                     <div class="student">
-                        <!-- <form method="post" action="{% url 'mentors:dashboard' %}">
-                        {% csrf_token %} -->
+                        
                         <div class="app-detail">
                             <p>{{ student.user.username }}</p>
                             <p><a href='{{ proposals|get_item:student.user.username }}'>Proposal Link</a></p>
                         </div>
-                        <!-- <input name="project" value="{{ project.id }}" style="display: none;" />
-                        <input
-                            name="mentee_id"
-                            value="{{ student.id }}"
-                            style="display: none;"
-                        /> -->
-                        <!-- <input type="submit" value="Accept Application" class="btn btn-primary" />
-                        </form> -->
+                        
                     </div>
                     {% endif %}
                     {% endfor %}
