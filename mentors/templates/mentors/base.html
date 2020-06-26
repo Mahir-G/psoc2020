@@ -65,13 +65,16 @@
                         {% if user.is_authenticated %}
                         <li class="nav-item">
                           <a class="nav-link" href="{% url 'mentors:profile' %}">{{ user.username }}</a>
-                      </li>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" href="{% url 'projects:conduct'%}">Conduct</a>
+                        </li>
                         <li class="nav-item">
                           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                      </li>
+                        </li>
                         {% else %}
                           <li class="nav-item">
-                              <a class="nav-link" href="#conduct">Conduct</a>
+                              <a class="nav-link" href="{% url 'projects:conduct'%}">Conduct</a>
                           </li>
 
                           <li class="nav-item">
@@ -97,7 +100,7 @@
         <div class="row">
             <div class="col-md-6">
               <div class="col-md-8 pl-4 pr-4">
-              <img class="img-fluid" src="{% static 'mentors/img/pclub-logo.png' %}" alt="logo">
+              <img class="img-fluid" src="{% static 'mentors/img/pclub-logo-white.png' %}" alt="logo">
                 <p>
                   Programming Club UIET or PCIub for short is a student driven society that aims af educating students about various domains of Computer Science, Electronics and Technology. 
                     <br><a href="#" class="move-top">Move to top</a><br>
