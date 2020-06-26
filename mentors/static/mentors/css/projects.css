@@ -53,7 +53,7 @@
 .card-body {
     padding: 3rem 4rem 2rem;
     /* background: rgba(255, 255, 255, 0.1); */
-    background: rgba(14,25,38, 0.3);
+    background: rgba(14, 25, 38, 0.3);
 }
 
 .card-title {
@@ -75,11 +75,13 @@
 .mentees-flex {
     float: right;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     margin-right: -0.6rem;
 }
 
 .student .btn {
-    margin: 0 0.5rem 0.2rem;
+    margin: 0 0.5rem 0.5rem;
     padding: .2rem .4rem;
 }
 
@@ -105,6 +107,7 @@
     .mentees-flex {
         float: none;
         display: flex;
+        justify-content: left;
         margin-right: 0;
         margin-left: -0.6rem;
     }
@@ -114,11 +117,17 @@
 }
 
 @media only screen and (max-width:502px) {
-    .proj-heading h1{
+    .proj-heading h1 {
         font-size: 30px;
     }
     .card-title {
         font-size: 22px;
+    }
+    .card-inner {
+        padding: 2rem;
+    }
+    .card-body {
+        padding: 2rem;
     }
     .card-body p {
         font-size: 15px;
@@ -127,4 +136,3 @@
         padding: 1rem 0 3rem;
     }
 }
-
