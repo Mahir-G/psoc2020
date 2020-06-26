@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 .partners {
     font-family: 'Quicksand';
     margin: 3rem auto 4rem;
@@ -41,18 +42,18 @@ hr {
 }
 
 .conduct {
-    font-family: 'Quicksand';
-    padding: 2rem 0rem 4rem;
-    background-image: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%);
+    font-family: 'Roboto', sans-serif;
+    padding: 0 0rem 4rem;
+    /* background-image: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%); */
     /* background: #FAFAFA; */
 }
 
 .conduct-body {
-    color: #fff;
-    max-width: 900px;
+    color: rgba(0, 0, 0, 0.87);
+    max-width: 960px;
     margin: 0 auto;
     transition: 0.4s;
-    padding: 3rem 3rem 0;
+    padding: 0rem 3rem 0;
     border-radius: 20px;
     cursor: default;
 }
@@ -62,13 +63,28 @@ hr {
 }
 
 .conduct-head {
+    background: url('/static/mentors/img/bg-conduct.png');
+    /* background-image: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%); */
+    background-size: 100% 120vh;
     width: 100%;
 }
 
 .conduct-head h1 {
     text-align: center;
     /* color: #323236; */
-    font-size: 35px;
+    color: #fff;
+    font-size: 45px;
+    padding: 2rem 0;
+}
+
+.conduct-subhead {
+    width: 100%;
+}
+
+.conduct-subhead h1 {
+    /* color: #323236; */
+    font-size: 30px;
+    padding: 4rem 0 0;
 }
 
 .conduct-descrip {
@@ -87,9 +103,9 @@ hr {
 .conduct-descrip p {
     font-size: 17px;
     text-align: justify;
-    line-height: 31px;
+    line-height: 1.6em;
     /* color: #454; */
-    color: #ccc;
+    color: #0e1926;
 }
 
 @media only screen and (max-width:992px) {
@@ -112,6 +128,9 @@ hr {
     .image-control {
         margin-bottom: 1rem;
     }
+    .conduct-head {
+        background: url('/static/mentors/img/bg-conduct-2.png');
+    }
 }
 
 @media only screen and (max-width:502px) {
@@ -121,6 +140,10 @@ hr {
     }
     .conduct-head h1 {
         font-size: 30px;
+    }
+    .conduct-descrip {
+        padding-top: 0.5rem;
+        padding-bottom: 1rem;
     }
     .conduct-descrip h3 {
         font-size: 16px;
@@ -138,6 +161,10 @@ hr {
     }
     .conduct-body {
         padding: 1rem 1.5rem 0;
+    }
+    .conduct-subhead h1 {
+        font-size: 25px;
+        padding: 1rem 0 0;
     }
 }
 

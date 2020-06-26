@@ -18,10 +18,24 @@ class Main(View):
 #view for the list of projects
 class Index(View):
     template_name = 'projects/index.html'
+    proposal_list = {}
+
+    def get_proposal_list(self, project_id):
+        project = Project.objects.get(pk=project_id)
+        for proposal in project.proposal_set.all():
+            self.proposal_list[proposal.mentee.user.username] = proposal.proposal_link
+        return self.proposal_list
 
     def get(self, request, *args, **kwargs):
         projects = Project.objects.filter(is_approved='True')
-        return render(request, self.template_name, {'projects':projects})
+        projects_details = []
+        project_detail = {}
+        for project in projects:
+            project_detail['project'] = project
+            proposal_list = self.get_proposal_list(project.id)
+            project_detail['proposal_list'] = proposal_list
+            projects_details.append(project_detail)
+        return render(request, self.template_name, {'projects':projects, 'projects_details': projects_details, 'proposals': self.proposal_list})
 
 
 #view for the details page of each project
@@ -93,3 +107,8 @@ class AdminProjectDetail(View):
             return redirect('admin_panel_project_detail', project.id)
         else:
             return HttpResponse("You are not authorized to access this page.")
+
+
+def conduct(request):
+
+    return render(request, 'projects/conduct.html')
