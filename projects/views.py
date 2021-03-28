@@ -112,3 +112,7 @@ class AdminProjectDetail(View):
 def conduct(request):
 
     return render(request, 'projects/conduct.html')
+
+def psoc2020(request):
+
+    return render(request, 'projects/psoc2020.html')
