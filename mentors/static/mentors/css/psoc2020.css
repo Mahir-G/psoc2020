@@ -5,6 +5,6 @@
 }
 
 /* Do styling here directly */
-.card{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.py-5 .card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
