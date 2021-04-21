@@ -48,6 +48,9 @@
                           <li class="nav-item">
                             <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
                         </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'projects:psoc2020' %}">PSOC 2020</a>
+                        </li>
                         {% if user.is_authenticated %}
                           {% if user.mentor %}
                         <li class="nav-item">
