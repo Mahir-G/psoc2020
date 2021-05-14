@@ -1,142 +1,208 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168192058-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'UA-168192058-1');
-    </script>
+<head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168192058-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-168192058-1');
+
+    var TxtType = function (el, toRotate, period) {
+      this.toRotate = toRotate;
+      this.el = el;
+      this.loopNum = 0;
+      this.period = parseInt(period, 10) || 2000;
+      this.txt = '';
+      this.tick();
+      this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function () {
+      var i = this.loopNum % this.toRotate.length;
+      var fullTxt = this.toRotate[i];
+
+      if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+      var that = this;
+      var delta = 200 - Math.random() * 100;
+
+      if (this.isDeleting) { delta /= 2; }
+
+      if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+      }
+
+      setTimeout(function () {
+        that.tick();
+      }, delta);
+    };
+
+    window.onload = function () {
+      var elements = document.getElementsByClassName('typewrite');
+      for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+      }
+      // INJECT CSS
+      var css = document.createElement("style");
+      css.type = "text/css";
+      css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+      document.body.appendChild(css);
+    };
+  </script>
 
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="{% static 'mentors/fontawesome-free-5.13.0-web/css/all.css' %}" rel="stylesheet">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="{% static 'mentors/fontawesome-free-5.13.0-web/css/all.css' %}" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'mentors/bootstrap4/css/bootstrap.min.css' %}">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'mentors/bootstrap4/css/bootstrap.min.css' %}">
 
-    <!-- Custom CSS-->
-    <link rel="stylesheet" type='text/css' href="{% static 'mentors/style.css' %}">
-    <link rel="stylesheet" type='text/css' href="{% static 'mentors/css/base.css' %}">
+  <!-- Custom CSS-->
+  <link rel="stylesheet" type='text/css' href="{% static 'mentors/style.css' %}">
+  <link rel="stylesheet" type='text/css' href="{% static 'mentors/css/base.css' %}">
 
-    <title>PClub Summer of Code</title>
-  </head>
-  <body>
-    <header>
-      <div class="bottomHeader">
-          <div class="container-fluid">
-              <nav class="navbar navbar-dark navbar-expand-md" style="background-color: #004d80;">
-                  <a href="{% url 'main_page' %}" class="navbar-brand">
-                      <img src="{% static 'mentors/img/pclub-logo.png' %}" alt="pclub-logo" width="105px">
-                  </a>
-                  <button data-toggle="collapse" data-target="#navbar-Toggler" type="button" class="navbar-toggler">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbar-Toggler">
-                      <ul class="navbar-nav">
-                          <li class="nav-item">
-                              <a class="nav-link" href="{% url 'main_page' %}">Home</a>
-                          </li>
-                          
-                          <!-- <li class="nav-item">
-                            <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
-                        </li> -->
-                          <li class="nav-item">
-                            <a class="nav-link" href="{% url 'projects:psoc2020' %}">PSOC 2020</a>
-                        </li>
-                        {% if user.is_authenticated %}
-                          {% if user.mentor %}
-                        <li class="nav-item">
-                          <a class="nav-link" href="{% url 'mentors:dashboard' %}">Dashboard</a>
-                        </li>
-                          {% else %}
-                        <li class="nav-item">
-                          <a class="nav-link" href="{% url 'mentees:dashboard' %}">Dashboard</a>
-                      </li>
+  <title>PClub Summer of Code</title>
+</head>
 
-                          {% endif %}
-                        {% endif %}
-                      </ul>
-                      <ul class="navbar-nav ml-auto">
-                        {% if user.is_authenticated %}
-                        <li class="nav-item">
-                          <a class="nav-link" href="{% url 'mentors:profile' %}">{{ user.username }}</a>
-                        </li>
-                        <li class="nav-item">
-                              <a class="nav-link" href="{% url 'projects:conduct'%}">Conduct</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                        </li>
-                        {% else %}
-                          <li class="nav-item">
-                              <a class="nav-link" href="{% url 'projects:conduct'%}">Conduct</a>
-                          </li>
+<body>
+  <header>
+    <div class="bottomHeader">
+      <div class="container-fluid">
+        <nav class="navbar navbar-dark navbar-expand-md" style="background-color: #004d80;">
+          <a href="{% url 'main_page' %}" class="navbar-brand">
+            <img src="{% static 'mentors/img/pclub-logo.png' %}" alt="pclub-logo" width="105px">
+          </a>
+          <button data-toggle="collapse" data-target="#navbar-Toggler" type="button" class="navbar-toggler">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-Toggler">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'main_page' %}">Home</a>
+              </li>
 
-                          <li class="nav-item">
-                              <a class="nav-link" href="#contact">Contact Us</a>
-                          </li>
-                          <!-- <li class="nav-item">
-                              <a class="nav-link" href="{% url 'user_login'%}">login</a>
-                          </li> -->
-                        {% endif %}
-                      </ul>
-                  </div>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'projects:psoc2020' %}">PSOC 2020</a>
+              </li>
+              {% if user.is_authenticated %}
+              {% if user.mentor %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'mentors:dashboard' %}">Dashboard</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'mentees:dashboard' %}">Dashboard</a>
+              </li>
 
-              </nav>
+              {% endif %}
+              {% endif %}
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'mentors:profile' %}">{{ user.username }}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'projects:conduct'%}">Conduct</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'projects:conduct'%}">Conduct</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_login'%}">login</a>
+              </li>
+              {% endif %}
+            </ul>
           </div>
+
+        </nav>
       </div>
+    </div>
   </header>
   {% block body_block %}
   {% endblock %}
   </div>
   <footer class="full-footer">
-  <a name="contact"></a>
+    <a name="contact"></a>
     <div class="container top-footer p-md-3 p-1">
-        <div class="row">
-            <div class="col-md-6">
-              <div class="col-md-8 pl-4 pr-4">
-              <img class="img-fluid" src="{% static 'mentors/img/pclub-logo-white.png' %}" alt="logo">
-                <p>
-                  Programming Club UIET or PCIub for short is a student driven society that aims af educating students about various domains of Computer Science, Electronics and Technology. 
-                    <br><a href="#" class="move-top">Move to top</a><br>
-                    <p class="social">
-                    <a class="p-1" href="https://www.facebook.com/pclubuiet"><i class="fab fa-2x fa-facebook-square"></i></a>
-                    <a class="p-1" href="https://www.instagram.com/pclubuiet/"><i class="fab fa-2x fa-instagram-square"></i></i></a>
-                    <a class="p-1" href="https://twitter.com/pclubuiet/"><i class="fab fa-2x fa-twitter-square"></i></a>
-                    <a class="p-1" href="https://github.com/pclubuiet/"><i class="fab fa-2x fa-github-square"></i></a>
-                    </p>
-                </p>
-              </div>
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-4 contact">
-                <h3>Contact Us</h3>
-                <a class="p-1" href="mailto: pclubsummerofcode@gmail.com"><i class="fas fa-envelope mr-1"></i>pclubsummerofcode@gmail.com</a><br>
-                <a class="p-1" href="mailto: pclubuiet@gmail.com"><i class="fas fa-envelope mr-1"></i>pclubuiet@gmail.com</a><br>
-                <br>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3428.9194909558046!2d76.75453041497592!3d30.748762881631613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffb15766ff70d%3A0xf6cfa1be358bbc88!2sUniversity%20Institute%20Of%20Engineering%20and%20Technology%2C%20Panjab%20University!5e0!3m2!1sen!2sin!4v1588602306657!5m2!1sen!2sin"
-                        frameborder="0" width="50px"></iframe>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-md-8 pl-4 pr-4">
+            <img class="img-fluid" src="{% static 'mentors/img/pclub-logo-white.png' %}" alt="logo">
+            <p>
+              Programming Club UIET or PCIub for short is a student driven society that aims af educating students about
+              various domains of Computer Science, Electronics and Technology.
+              <!-- This code is for the Move to Top Option on the Home Page-->
+              <!-- <br><a href="#" class="move-top">Move to top</a><br> -->
+            <p class="social"> 
+              <a class="p-1" href="https://www.facebook.com/pclubuiet"><i class="fab fa-2x fa-facebook-square"></i></a>
+              <a class="p-1" href="https://www.instagram.com/pclubuiet/"><i
+                  class="fab fa-2x fa-instagram-square"></i></i></a>
+              <a class="p-1" href="https://twitter.com/pclubuiet/"><i class="fab fa-2x fa-twitter-square"></i></a>
+              <a class="p-1" href="https://github.com/pclubuiet/"><i class="fab fa-2x fa-github-square"></i></a>
+            </p>
+            </p>
+          </div>
         </div>
-</footer>
+        <div class="col-md-2"></div>
+        <div class="col-md-4 contact">
+          <h3>Contact Us</h3>
+          <a class="p-1" href="mailto: pclubsummerofcode@gmail.com"><i
+              class="fas fa-envelope mr-1"></i>pclubsummerofcode@gmail.com</a><br>
+          <a class="p-1" href="mailto: pclubuiet@gmail.com"><i
+              class="fas fa-envelope mr-1"></i>pclubuiet@gmail.com</a><br>
+          <br>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3428.9194909558046!2d76.75453041497592!3d30.748762881631613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffb15766ff70d%3A0xf6cfa1be358bbc88!2sUniversity%20Institute%20Of%20Engineering%20and%20Technology%2C%20Panjab%20University!5e0!3m2!1sen!2sin!4v1588602306657!5m2!1sen!2sin"
+              frameborder="0" width="50px"></iframe>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+  </footer>
 
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="{% static 'mentors/bootstrap4/js/jquery-3.2.1.slim.min.js' %}"></script>
-<script src="{% static 'mentors/bootstrap4/js/popper.min.js' %}"></script>
-<script src="{% static 'mentors/bootstrap4/js/bootstrap.min.js' %}"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'mentors/bootstrap4/js/jquery-3.2.1.slim.min.js' %}"></script>
+  <script src="{% static 'mentors/bootstrap4/js/popper.min.js' %}"></script>
+  <script src="{% static 'mentors/bootstrap4/js/bootstrap.min.js' %}"></script>
 </body>
+
 </html>

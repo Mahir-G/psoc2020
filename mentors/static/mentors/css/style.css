@@ -11,6 +11,7 @@
     background-color: aqua;
 }
 
+
 /* START: HEADER */
 
 #topHeader {
@@ -38,7 +39,9 @@
     color: black;
 }
 
+
 /*END: HEADER */
+
 
 /* START: HOME PAGE SECTION*/
 
@@ -74,7 +77,9 @@
     }
 }
 
+
 /*END: SECTION */
+
 
 /* START: Footer */
 
@@ -99,4 +104,20 @@
     color: white;
 }
 
+
 /* END: Footer */
+
+
+/* Move to Top-Button */
+
+.arrow-btn a {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 7px 12px;
+    background-color: black;
+    box-shadow: rgba(0, 0, 0, 0.15);
+}
