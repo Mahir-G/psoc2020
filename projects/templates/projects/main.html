@@ -5,32 +5,37 @@
 <link rel="stylesheet" href="{% static 'mentors/css/about.css' %}" />
 <link rel="stylesheet" href="{% static 'mentors/css/conduct.css' %}" />
 <section class="home-section pt-4 pb-5">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-8 main-section">
-        <h2>PClub Summer Of Code</h2>
-        <h5>
-          Spend your summer break writing code and learning about open source
-          development. Accepted students work with a
-          mentor and become a part of the open source community. Many become
-          lifetime open source developers!
-        </h5>
-        <br />
-        {% if not user.is_authenticated %}
-        <div class="main-register">
-        <h3 class="pb-1"><span>L</span>ogin here</h3>
-        <a href="{% url 'user_login'%}" class="mentor">
-            <button class="btn btn-lg mb-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 main-section">
+                <h2>PClub Summer Of Code</h2>
+                <h3>
+                    <a href="" class="typewrite" data-period="2000" data-type='[ "Open Source Development", "Exciting Projects", "Real Exposure", "Register Now!" ]' style="color: white;">
+                        <span class="wrap"></span>
+                    </a>
+                </h3>
+                <h5>
+                    Spend your summer break writing code and learning about open source development. Accepted students work with a mentor and become a part of the open source community. Many become lifetime open source developers!
+                </h5>
+                <br /> {% if not user.is_authenticated %}
+                <div class="main-register">
+                    <h3 class="pb-1"><span>L</span>ogin here</h3>
+                    <a href="{% url 'user_login'%}" class="mentor">
+                        <button class="btn btn-lg mb-3">
                 Mentor
-              </button></a
-            >
-            <a href="{% url 'user_login'%}">
-            <button class="btn btn-lg mb-3">
+              </button></a>
+                    <a href="{% url 'user_login'%}">
+                        <button class="btn btn-lg mb-3">
                 Mentee
-              </button></a
-            >
+              </button></a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-4" id="img-logo">
+                <img src="{% static 'mentors/img/computer.png' %}" alt="icon" width="300px" />
+            </div>
         </div>
-        {% endif %}
+        {% endif %} -->
       </div>
       <div class="col-lg-4" id="img-logo">
         <img
@@ -40,23 +45,15 @@
         />
       </div>
     </div>
-  </div>
 </section>
 <section class="about-psoc">
     <div class="sub-about container">
         <div class="row">
             <div class="about-content col-lg-7">
                 <h1>About PSoC</h1>
-                <p>PClub Summer of Code is the 2 month long Open Source program during 
-                summers conducted by Programming Club, UIET, with an aim to help beginners 
-                get started with Open Source Development while encouraging diversity. 
-                Throughout the program, participants contribute to different projects under 
-                guidance of experienced mentors. Mentors get to make their ideas alive and 
-                Mentees get to learn tech.                
-                <br><br>
-                PSoC is targeted at audience who want to dwell 
-                in OpenSource Development as well as who are already into FOSS development. 
-                This program will help students for other opensource programs like Gsoc, Outreachy, etc.                
+                <p>PClub Summer of Code is the 2 month long Open Source program during summers conducted by Programming Club, UIET, with an aim to help beginners get started with Open Source Development while encouraging diversity. Throughout the program,
+                    participants contribute to different projects under guidance of experienced mentors. Mentors get to make their ideas alive and Mentees get to learn tech.
+                    <br><br> PSoC is targeted at audience who want to dwell in OpenSource Development as well as who are already into FOSS development. This program will help students for other opensource programs like Gsoc, Outreachy, etc.
                 </p>
                 <div class="manuals">
                     <a href="{% static 'mentors/img/PSoC_Mentor_Manual_2.pdf' %}" class="mentor-manual btn btn-primary mb-3" target="_blank">
@@ -65,7 +62,7 @@
                     <a href="{% static 'mentors/img/PSoC_Mentee_Manual.pdf' %}" target="_blank" class="mb-3">
                         <button class="mentee-manual btn btn-primary">Download Mentee Manual</button>
                     </a>
-                </div>                    
+                </div>
             </div>
             <div class="psoc-logo">
                 <img src="{% static 'mentors/img/psoc-logo.png' %}">
@@ -75,13 +72,14 @@
 </section>
 <section class="home-bg">
     <div class="about-bg">
-        {% comment %} <img src="{% static 'mentors/img/pclub-members.jpeg' %}">  {% endcomment %}
+        {% comment %} <img src="{% static 'mentors/img/pclub-members.jpeg' %}"> {% endcomment %}
     </div>
     <div class="color-overlay"></div>
 </section>
 <section class="timeline">
             <div class="timeline-head">
                 <h1>Timeline</h1>
+                
             </div>
             <div class="row">
                 <div class="schedule-box col-sm-12">
@@ -98,7 +96,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-0">
-                                            <h3>1 June, 2020</h3>
+                                            <h3>1 June, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +110,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-1">
-                                            <h3>5 June, 2020</h3>
+                                            <h3>5 June, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +124,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-2">
-                                            <h3>12 June, 2020</h3>
+                                            <h3>12 June, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +138,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-3">
-                                            <h3>13 June, 2020</h3>
+                                            <h3>13 June, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +150,7 @@
                                             <p>Students must propose their proposels by 22 June, 2020</p>
                                         </div>
                                         <div class="time time-4">
-                                            <h3>22 June, 2020</h3>
+                                            <h3>22 June, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +164,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-5">
-                                            <h3>23 June, 2020</h3>
+                                            <h3>23 June, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -180,7 +178,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-6">
-                                            <h3>24-25 June, 2020</h3>
+                                            <h3>24-25 June, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +192,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-7">
-                                            <h3>26 June, 2020</h3>
+                                            <h3>26 June, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -208,7 +206,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-8">
-                                            <h3>25 August, 2020</h3>
+                                            <h3>25 August, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +220,7 @@
                                             </p>
                                         </div>
                                         <div class="time time-9">
-                                            <h3>30 August, 2020</h3>
+                                            <h3>30 August, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -236,19 +234,92 @@
                                             </p>
                                         </div>
                                         <div class="time time-10">
-                                            <h3>5 September, 2020</h3>
+                                            <h3>5 September, 2021</h3>
                                         </div>
                                     </div>
                                 </div>
-                                <div style="clear: both;"></div>
                             </div>
                         </div>
+                        <div class="col-sm-12 links">
+                            <div class="featured-schedule">
+                                <div class="col text-center">
+                                    <h2><span>Bonding Period</span></h2>
+                                    <br />
+                                    <p>
+                                        Students are given time to Connect with Mentors and Understand the Project.
+                                    </p>
+                                </div>
+                                <div class="time time-6">
+                                    <h3>24-25 June, 2020</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 links">
+                            <div class="featured-schedule">
+                                <div class="col text-center">
+                                    <h2><span>Coding Period Starts</span></h2>
+                                    <br />
+                                    <p>
+                                        Students Start with thier Contribution.
+                                    </p>
+                                </div>
+                                <div class="time time-7">
+                                    <h3>26 June, 2020</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 links">
+                            <div class="featured-schedule">
+                                <div class="col text-center">
+                                    <h2><span>Coding Period Ends</span></h2>
+                                    <br />
+                                    <p>
+                                        Coding Period Ends.
+                                    </p>
+                                </div>
+                                <div class="time time-8">
+                                    <h3>25 August, 2020</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 links">
+                            <div class="featured-schedule">
+                                <div class="col text-center">
+                                    <h2><span>Contribution and Feedbacks</span></h2>
+                                    <br />
+                                    <p>
+                                        Students conclude with their Contribution for the program. Mentors file feedback.
+                                    </p>
+                                </div>
+                                <div class="time time-9">
+                                    <h3>30 August, 2020</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 links">
+                            <div class="featured-schedule">
+                                <div class="col text-center">
+                                    <h2><span>Result</span></h2>
+                                    <br />
+                                    <p>
+                                        Results Announced. Certificates are Distributed.
+                                    </p>
+                                </div>
+                                <div class="time time-10">
+                                    <h3>5 September, 2020</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
                     </div>
                 </div>
             </div>
-</section>  
+        </div>
+    </div>
+</section>
 <section class="partners">
-    {% comment %} <h1>2020 Partners</h1> {% endcomment %}
+    {% comment %}
+    <h1>2020 Partners</h1> {% endcomment %}
     <hr>
     <div class="row partners-descrip">
         <h2>In-kind Partners</h2>
@@ -267,4 +338,10 @@
         </div>
     </div>
 </section>
+
+<!-- This Code is for Move to Top Icon Editted by Aditi-->
+<div class="arrow-btn">
+    <a href="#"><i class="fas fa-angle-up"></i></a>
+</div>
+
 {% endblock %}
