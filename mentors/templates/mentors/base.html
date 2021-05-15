@@ -3,7 +3,16 @@
 <html lang="en">
 
 <head>
-
+  <style>
+    /* preloaderL */
+    #preloader {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      background: white url('{% static "mentors/img/spinner-preloader.gif" %}') no-repeat center;
+      z-index: 9999;
+    }
+  </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168192058-1"></script>
   <script>
@@ -69,6 +78,8 @@
       css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
       document.body.appendChild(css);
     };
+
+
   </script>
 
 
@@ -87,7 +98,9 @@
   <title>PClub Summer of Code</title>
 </head>
 
-<body>
+<body onload="preloaderfunction()">
+  <div id="preloader"></div>
+
   <header>
     <div class="bottomHeader">
       <div class="container-fluid">
@@ -168,7 +181,7 @@
               various domains of Computer Science, Electronics and Technology.
               <!-- This code is for the Move to Top Option on the Home Page-->
               <!-- <br><a href="#" class="move-top">Move to top</a><br> -->
-            <p class="social"> 
+            <p class="social">
               <a class="p-1" href="https://www.facebook.com/pclubuiet"><i class="fab fa-2x fa-facebook-square"></i></a>
               <a class="p-1" href="https://www.instagram.com/pclubuiet/"><i
                   class="fab fa-2x fa-instagram-square"></i></i></a>
@@ -203,6 +216,14 @@
   <script src="{% static 'mentors/bootstrap4/js/jquery-3.2.1.slim.min.js' %}"></script>
   <script src="{% static 'mentors/bootstrap4/js/popper.min.js' %}"></script>
   <script src="{% static 'mentors/bootstrap4/js/bootstrap.min.js' %}"></script>
+
+  <script>
+        // preloader
+        var preloader = document.getElementById('preloader');
+    function preloaderfunction(){
+      preloader.style.display = 'none';
+    }
+  </script>
 </body>
 
 </html>
