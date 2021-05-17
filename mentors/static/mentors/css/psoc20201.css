@@ -78,14 +78,14 @@ body {
   min-height: 100vh;
   padding: 40px;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 
-  background: hsl(220, 10%, 12%);
-  font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
-}*/
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
 
 
 /* .flip-card-container */
@@ -222,6 +222,14 @@ body {
     z-index: 2;
 }
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
 
 /* .card-back */
 
