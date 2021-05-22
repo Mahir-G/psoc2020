@@ -1,0 +1,32 @@
+.box {
+
+    
+    background:white;
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    min-height: 300px;
+    border: 2px #ccc solid;
+    color: #fff;
+  }
+  
+  .baseBlock {
+	margin: 0px 0px 35px 0px;
+	padding: 0 0 15px 0px;
+	border-radius: 5px;
+	overflow: hidden;
+	
+	-moz-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.baseBlock:hover {
+	-webkit-transform: translate(0, -8px);
+	-moz-transform: translate(0, -8px);
+	-ms-transform: translate(0, -8px);
+	-o-transform: translate(0, -8px);
+	transform: translate(0, -8px);
+	box-shadow:0 40px 40px rgba(0, 0, 0, 0.2)
+}
+
