@@ -1,5 +1,5 @@
-# psoc2020
-Pclub Summer of Code 2020
+# psoc2021
+Pclub Summer of Code 2021
 
 
 ## Setup
