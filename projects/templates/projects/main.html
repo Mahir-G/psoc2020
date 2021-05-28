@@ -20,12 +20,13 @@
                 </h5>
                 <br /> {% if not user.is_authenticated %}
                 <div class="main-register">
-                    <h3 class="pb-1"><span>L</span>ogin here</h3>
-                    <a href="{% url 'user_login'%}" class="mentor">
+
+                    <h3 class="pb-1"><span>R</span>egister Here!</h3>
+                    <a href="/mentors/register" class="mentor">
                         <button class="btn btn-lg mb-3">
                 Mentor
               </button></a>
-                    <a href="{% url 'user_login'%}">
+                    <a href="/mentees/register">
                         <button class="btn btn-lg mb-3">
                 Mentee
               </button></a>
@@ -36,8 +37,10 @@
                 <img src="{% static 'mentors/img/computer.png' %}" alt="icon" width="300px" />
             </div>
         </div>
+
     </div>
     </div>
+
 </section>
 <section class="about-psoc">
     <div class="sub-about container">
@@ -104,6 +107,7 @@
                                 </div>
                                 <div class="time time-1">
                                     <h3>5 June, 2021</h3>
+
                                 </div>
                             </div>
                         </div>
@@ -118,6 +122,7 @@
                                 </div>
                                 <div class="time time-2">
                                     <h3>12 June, 2021</h3>
+
                                 </div>
                             </div>
                         </div>
@@ -231,6 +236,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div style="clear: both;"></div>
                     </div>
                 </div>
                 <div style="clear: both;"></div>
@@ -274,3 +280,4 @@
 </div>
 
 {% endblock %}
+
