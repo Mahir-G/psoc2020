@@ -26,9 +26,13 @@
             ></span>
             <input type="text" name="github" placeholder="Github profile"
               required="required" autocomplete="off" value="{{ data.github }}">
+            <input type="text" name="CV" style="margin-top: 10px; margin-left: auto; margin-right: auto;" placeholder="Google Drive link for your CV"
+              required="required" autocomplete="off" value="{{ data.CV }}">
             </div>
+            {% comment %}
             <label style="display: {{ data.display }};">Upload your CV here : <input type="file" name="CV"
             autocomplete="off" class="file" accept=".pdf" required="required"></label>
+            {% endcomment %}
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
             <div class="cancel btn-block">    
                 <a href="{% url 'mentors:dashboard' %}" class="">Cancel</a>
