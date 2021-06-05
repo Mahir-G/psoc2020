@@ -5,7 +5,7 @@
 }
 
 .home-bg {
-    background: url('/static/mentors/img/pclub-members.jpeg');
+    background: url('/static/mentors/img/Psoc-bg.jpg');
     height: 300px;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -13,6 +13,7 @@
     position: relative;
     background-size: cover;
 }
+
 
 /* 
 .sub-about {

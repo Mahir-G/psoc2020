@@ -27,12 +27,13 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # if "DYNO" in os.environ:
-    # DEBUG = False
+# DEBUG = False
 # else:
-    # DEBUG = True
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['3.6.164.160', 'pclubsummerofcode.in', 'www.pclubsummerofcode.in', 'localhost', '127.0.0.1', '0.0.0.0', 'psoc2021.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'pclubsummerofcode.in', 'www.pclubsummerofcode.in',
+                 'localhost',  '0.0.0.0', 'psoc2021.herokuapp.com']
 
 
 # Application definition
