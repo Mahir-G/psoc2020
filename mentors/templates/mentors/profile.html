@@ -2,42 +2,77 @@
 <link rel="stylesheet" href="{% static 'mentors/css/mentor-info.css' %}" />
 <link rel="stylesheet" href="{% static 'mentors/css/base.css' %}" />
 <div class="container d-flex justify-content-center pt-5 pb-5">
-    <section class="info-form">
-        <h2>Fill your information to continue.</h2>
-        <form action="{% url 'mentors:profile' %}" method='POST' enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-input">
-            <span class="input-group-addon"
-              ><i class="fa fa-user"></i
-            ></span>
-            <input type="text" name="name" placeholder="Name"
-              required="required" autocomplete="off" value="{{ data.name }}">
-            </div>
-            <div class="form-input">
-            <span class="input-group-addon"
-              ><i class="fab fa-linkedin-in"></i
-            ></span>
-            <input type="text" name="linkedin" placeholder="linkedin profile"
-              required="required" autocomplete="off" value="{{ data.linkedin }}">
-            </div>
-            <div class="form-input">
-            <span class="input-group-addon"
-              ><i class="fab fa-github"></i
-            ></span>
-            <input type="text" name="github" placeholder="Github profile"
-              required="required" autocomplete="off" value="{{ data.github }}">
-            <input type="text" name="CV" style="margin-top: 10px; margin-left: auto; margin-right: auto;" placeholder="Google Drive link for your CV"
-              required="required" autocomplete="off" value="{{ data.CV }}">
-            </div>
-            {% comment %}
-            <label style="display: {{ data.display }};">Upload your CV here : <input type="file" name="CV"
-            autocomplete="off" class="file" accept=".pdf" required="required"></label>
-            {% endcomment %}
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
-            <div class="cancel btn-block">    
-                <a href="{% url 'mentors:dashboard' %}" class="">Cancel</a>
-            </div>
-        </form>
-    </section>
+  <section class="info-form">
+    <h2>Fill your information to continue.</h2>
+    <form
+      action="{% url 'mentors:profile' %}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <div class="form-input">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          required="required"
+          autocomplete="off"
+          value="{{ data.name }}"
+        />
+      </div>
+      <div class="form-input">
+        <span class="input-group-addon"
+          ><i class="fab fa-linkedin-in"></i
+        ></span>
+        <input
+          type="text"
+          name="linkedin"
+          placeholder="linkedin profile"
+          required="required"
+          autocomplete="off"
+          value="{{ data.linkedin }}"
+        />
+      </div>
+      <div class="form-input">
+        <span class="input-group-addon"><i class="fab fa-github"></i></span>
+        <input
+          type="text"
+          name="github"
+          placeholder="Github profile"
+          required="required"
+          autocomplete="off"
+          value="{{ data.github }}"
+        />
+      </div>
+      <div class="form-input">
+        <span class="input-group-addon"><i class="fas fa-link"></i></span>
+        <input
+          type="text"
+          name="CV"
+          placeholder="Drive link for your CV"
+          required="required"
+          autocomplete="off"
+          value="{{ data.CV }}"
+        />
+      </div>
+      {% comment %}
+      <label style="display: {{ data.display }};"
+        >Upload your CV here :
+        <input
+          type="file"
+          name="CV"
+          autocomplete="off"
+          class="file"
+          accept=".pdf"
+          required="required"
+      /></label>
+      {% endcomment %}
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      <div class="cancel btn-block">
+        <a href="{% url 'mentors:dashboard' %}" class="">Cancel</a>
+      </div>
+    </form>
+  </section>
 </div>
 {% endblock %}

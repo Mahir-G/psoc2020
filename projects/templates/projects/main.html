@@ -4,286 +4,311 @@
 <link rel="stylesheet" href="{% static 'mentors/css/timeline.css' %}" />
 <link rel="stylesheet" href="{% static 'mentors/css/about.css' %}" />
 <link rel="stylesheet" href="{% static 'mentors/css/conduct.css' %}" />
-
-<section class="home-section pt-4 pb-5">
+<div class="container-fluid">
+  <section class="home-section pt-4 pb-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8 main-section">
-                <h2>PClub Summer Of Code</h2>
-                <h3>
-                    <a href="" class="typewrite" data-period="2000" data-type='[ "Open Source Development", "Exciting Projects", "Real Exposure", "Register Now!" ]' style="color: white;">
-                        <span class="wrap"></span>
-                    </a>
-                </h3>
-                <h5>
-                    Spend your summer break writing code and learning about open source development. Accepted students work with a mentor and become a part of the open source community. Many become lifetime open source developers!
-                </h5>
-                <br /> {% if not user.is_authenticated %}
-                <div class="main-register">
-
-                    <h3 class="pb-1"><span>R</span>egister Here!</h3>
-                    <a href="/mentors/register" class="mentor">
-                        <button class="btn btn-lg mb-3">
-                Mentor
-              </button></a>
-              {% comment %}
-                    <a href="/mentees/register">
-                        <button class="btn btn-lg mb-3">
-                Mentee
-              </button></a>
-              {% endcomment %}
-                </div>
-                {% endif %}
-            </div>
-            <div class="col-lg-4" id="img-logo">
-                <img src="{% static 'mentors/img/computer.png' %}" alt="icon" width="300px" />
-            </div>
+      <div class="row align-items-center">
+        <div class="col-lg-8 main-section">
+          <h2>PClub Summer Of Code</h2>
+          <h3>
+            <a
+              href=""
+              class="typewrite"
+              data-period="2000"
+              data-type='[ "Open Source Development", "Exciting Projects", "Real Exposure", "Register Now!" ]'
+              style="color: white"
+            >
+              <span class="wrap"></span>
+            </a>
+          </h3>
+          <h5>
+            Spend your summer break writing code and learning about open source
+            development. Accepted students work with a mentor and become a part
+            of the open source community. Many become lifetime open source
+            developers!
+          </h5>
+          <br />
+          {% if not user.is_authenticated %}
+          <div class="main-register">
+            <h3 class="pb-1"><span>R</span>egister Here!</h3>
+            <a href="/mentors/register" class="mentor">
+              <button class="btn btn-lg mb-3">Mentor</button></a
+            >
+            {% comment %}
+            <a href="/mentees/register">
+              <button class="btn btn-lg mb-3">Mentee</button></a
+            >
+            {% endcomment %}
+          </div>
+          {% endif %}
         </div>
-
+        <div class="col-lg-4" id="img-logo">
+          <img
+            src="{% static 'mentors/img/computer.png' %}"
+            alt="icon"
+            width="300px"
+          />
+        </div>
+      </div>
     </div>
-    </div>
-
-</section>
-<section class="about-psoc">
+  </section>
+  <section class="about-psoc">
     <div class="sub-about container">
-        <div class="row">
-            <div class="about-content col-lg-7">
-                <h1>About PSoC</h1>
-                <p>PClub Summer of Code is the 2 month long Open Source program during summers conducted by Programming Club, UIET, with an aim to help beginners get started with Open Source Development while encouraging diversity. Throughout the program,
-                    participants contribute to different projects under guidance of experienced mentors. Mentors get to make their ideas alive and Mentees get to learn tech.
-                    <br><br> PSoC is targeted at audience who want to dwell in OpenSource Development as well as who are already into FOSS development. This program will help students for other opensource programs like Gsoc, Outreachy, etc.
-                </p>
-                <div class="manuals">
-                    <a href="{% static 'mentors/img/PSoC_2021_Mentor_Manual.pdf' %}" class="mentor-manual btn btn-primary mb-3" target="_blank">
-                        Download Mentor Manual
-                    </a>
-                    <a href="{% static 'mentors/img/PSoC_2021_Mentee_Manual.pdf' %}" target="_blank" class="mb-3">
-                        <button class="mentee-manual btn btn-primary">Download Mentee Manual</button>
-                    </a>
-                </div>
-            </div>
-            <div class="psoc-logo">
-                <img src="{% static 'mentors/img/psoc-logo.png' %}">
-            </div>
+      <div class="row">
+        <div class="about-content col-lg-7">
+          <h1>About PSoC</h1>
+          <p>
+            PClub Summer of Code is the 2 month long Open Source program during
+            summers conducted by Programming Club, UIET, with an aim to help
+            beginners get started with Open Source Development while encouraging
+            diversity. Throughout the program, participants contribute to
+            different projects under guidance of experienced mentors. Mentors
+            get to make their ideas alive and Mentees get to learn tech.
+            <br /><br />
+            PSoC is targeted at audience who want to dwell in OpenSource
+            Development as well as who are already into FOSS development. This
+            program will help students for other opensource programs like Gsoc,
+            Outreachy, etc.
+          </p>
+          <div class="manuals">
+            <a
+              href="{% static 'mentors/img/PSoC_2021_Mentor_Manual.pdf' %}"
+              class="mentor-manual btn btn-primary mb-3"
+              target="_blank"
+            >
+              Download Mentor Manual
+            </a>
+            <a
+              href="{% static 'mentors/img/PSoC_2021_Mentee_Manual.pdf' %}"
+              target="_blank"
+              class="mb-3"
+            >
+              <button class="mentee-manual btn btn-primary">
+                Download Mentee Manual
+              </button>
+            </a>
+          </div>
         </div>
+        <div class="psoc-logo">
+          <img src="{% static 'mentors/img/psoc-logo.png' %}" />
+        </div>
+      </div>
     </div>
-</section>
-<section class="home-bg">
+  </section>
+  <section class="home-bg">
     <div class="about-bg">
-        {% comment %} <img src="{% static 'mentors/img/Psoc-bg.jpg' %}"> {% endcomment %}
+      {% comment %} <img src="{% static 'mentors/img/Psoc-bg.jpg' %}" />
+      {% endcomment %}
     </div>
     <div class="color-overlay"></div>
-</section>
-<section class="timeline">
+  </section>
+  <section class="timeline">
     <div class="timeline-head">
-        <h1>Timeline</h1>
-
+      <h1>Timeline</h1>
     </div>
     <div class="row">
-        <div class="schedule-box col-sm-12">
-            <div class="featured-schedule-collection container-schedule">
-                <div class="row">
-                    <div class="schedule-box">
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Program Announced</span></h2>
-                                    <br />
-                                    <p>
-                                        Pclub Summer of Code is released online and students and mentors are informed about the program.
-                                    </p>
-                                </div>
-                                <div class="time time-0">
-                                    <h3>1 June, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span> Registration starts</span></h2>
-                                    <br />
-                                    <p>
-                                        Interested mentors sign up on the website and optionally register their projects. Interested students begin applying to the program.
-                                    </p>
-                                </div>
-                                <div class="time time-1">
-                                    <h3>5 June, 2021</h3>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Mentor Registration Ends</span></h2>
-                                    <br />
-                                    <p>
-                                        Mentors must register themselves by 12th June, 2020.
-                                    </p>
-                                </div>
-                                <div class="time time-2">
-                                    <h3>12 June, 2021</h3>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Projects Announced</span></h2>
-                                    <br />
-                                    <p>
-                                        Selected Projects Announced and Students Application begins.
-                                    </p>
-                                </div>
-                                <div class="time time-3">
-                                    <h3>15 June, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Student Registration Ends</span></h2>
-                                    <br />
-                                    <p>Students must propose their proposels by 22 June, 2020</p>
-                                </div>
-                                <div class="time time-4">
-                                    <h3>22 June, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Selection Students Release</span></h2>
-                                    <br />
-                                    <p>
-                                        Selected Students are Notified of thier Selection.
-                                    </p>
-                                </div>
-                                <div class="time time-5">
-                                    <h3>23 June, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Bonding Period</span></h2>
-                                    <br />
-                                    <p>
-                                        Students are given time to Connect with Mentors and Understand the Project.
-                                    </p>
-                                </div>
-                                <div class="time time-6">
-                                    <h3>24-25 June, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Coding Period Starts</span></h2>
-                                    <br />
-                                    <p>
-                                        Students Start with thier Contribution.
-                                    </p>
-                                </div>
-                                <div class="time time-7">
-                                    <h3>26 June, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Coding Period Ends</span></h2>
-                                    <br />
-                                    <p>
-                                        Coding Period Ends.
-                                    </p>
-                                </div>
-                                <div class="time time-8">
-                                    <h3>25 August, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Contribution and Feedbacks</span></h2>
-                                    <br />
-                                    <p>
-                                        Students conclude with their Contribution for the program. Mentors file feedback.
-                                    </p>
-                                </div>
-                                <div class="time time-9">
-                                    <h3>30 August, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 links">
-                            <div class="featured-schedule">
-                                <div class="col text-center">
-                                    <h2><span>Result</span></h2>
-                                    <br />
-                                    <p>
-                                        Results Announced. Certificates are Distributed.
-                                    </p>
-                                </div>
-                                <div class="time time-10">
-                                    <h3>5 September, 2021</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                    </div>
+      <div class="schedule-box col-sm-12">
+        <div class="featured-schedule-collection container-schedule">
+          <div class="row">
+            <div class="schedule-box">
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Program Announced</span></h2>
+                    <br />
+                    <p>
+                      Pclub Summer of Code is released online and students and
+                      mentors are informed about the program.
+                    </p>
+                  </div>
+                  <div class="time time-0">
+                    <h3>1 June, 2021</h3>
+                  </div>
                 </div>
-                <div style="clear: both;"></div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span> Registration starts</span></h2>
+                    <br />
+                    <p>
+                      Interested mentors sign up on the website and optionally
+                      register their projects. Interested students begin
+                      applying to the program.
+                    </p>
+                  </div>
+                  <div class="time time-1">
+                    <h3>5 June, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Mentor Registration Ends</span></h2>
+                    <br />
+                    <p>Mentors must register themselves by 12th June, 2020.</p>
+                  </div>
+                  <div class="time time-2">
+                    <h3>12 June, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Projects Announced</span></h2>
+                    <br />
+                    <p>
+                      Selected Projects Announced and Students Application
+                      begins.
+                    </p>
+                  </div>
+                  <div class="time time-3">
+                    <h3>15 June, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Student Registration Ends</span></h2>
+                    <br />
+                    <p>
+                      Students must propose their proposels by 22 June, 2020
+                    </p>
+                  </div>
+                  <div class="time time-4">
+                    <h3>22 June, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Selection Students Release</span></h2>
+                    <br />
+                    <p>Selected Students are Notified of thier Selection.</p>
+                  </div>
+                  <div class="time time-5">
+                    <h3>23 June, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Bonding Period</span></h2>
+                    <br />
+                    <p>
+                      Students are given time to Connect with Mentors and
+                      Understand the Project.
+                    </p>
+                  </div>
+                  <div class="time time-6">
+                    <h3>24-25 June, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Coding Period Starts</span></h2>
+                    <br />
+                    <p>Students Start with thier Contribution.</p>
+                  </div>
+                  <div class="time time-7">
+                    <h3>26 June, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Coding Period Ends</span></h2>
+                    <br />
+                    <p>Coding Period Ends.</p>
+                  </div>
+                  <div class="time time-8">
+                    <h3>25 August, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Contribution and Feedbacks</span></h2>
+                    <br />
+                    <p>
+                      Students conclude with their Contribution for the program.
+                      Mentors file feedback.
+                    </p>
+                  </div>
+                  <div class="time time-9">
+                    <h3>30 August, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 links">
+                <div class="featured-schedule">
+                  <div class="col text-center">
+                    <h2><span>Result</span></h2>
+                    <br />
+                    <p>Results Announced. Certificates are Distributed.</p>
+                  </div>
+                  <div class="time time-10">
+                    <h3>5 September, 2021</h3>
+                  </div>
+                </div>
+              </div>
+              <div style="clear: both"></div>
             </div>
+          </div>
+          <div style="clear: both"></div>
         </div>
+      </div>
     </div>
-    </div>
-    </div>
-</section>
-<section class="partners">
+  </section>
+  <section class="partners">
     {% comment %}
-    <h1>2020 Partners</h1> {% endcomment %}
-    <hr>
+    <h1>2020 Partners</h1>
+    {% endcomment %}
+    <hr />
     <div class="row partners-descrip">
-        <h2>In-kind Partners</h2>
-        <div class="image-control col-lg-6">
-            <img src="{% static 'mentors/img/jetbrains.png' %}">
-        </div>
-        <div class="image-control col-lg-6 g-tech">
-            <img src="{% static 'mentors/img/openmined.jpeg' %} ">
-        </div>
+      <h2>In-kind Partners</h2>
+      <div class="image-control col-lg-6">
+        <img src="{% static 'mentors/img/jetbrains.png' %}" />
+      </div>
+      <div class="image-control col-lg-6 g-tech">
+        <img src="{% static 'mentors/img/openmined.jpeg' %} " />
+      </div>
+      <h2>Outreach Partner</h2>
+      <div class="image-control col-lg-12">
+        <img src="{% static 'mentors/img/internwell.png' %}" />
+      </div>
     </div>
-    <hr>
+    {% comment %}
+    <hr />
     <div class="row previous-partners-descrip">
-        <h2>Previous In-kind Partners </h2>
-        <div class="image-control col-lg-6 g-tech">
-            <img src="{% static 'mentors/img/GirlscriptTech.png' %}">
-        </div>
-        <div class="image-control col-lg-6">
-            <img src="https://balsamiq.com/assets/company/brandassets/balsamiq-logo-screen.svg">
-        </div>
-        <div class="image-control col-lg-12">
-            <img src="{% static 'mentors/img/BUGSEE-logo.png' %}">
-        </div>
-        <h2>Previous Outreach Partner</h2>
-        <div class="image-control col-lg-12">
-            <img src="{% static 'mentors/img/internwell.png' %}">
-        </div>
+      <h2>Previous In-kind Partners</h2>
+      <div class="image-control col-lg-6 g-tech">
+        <img src="{% static 'mentors/img/GirlscriptTech.png' %}" />
+      </div>
+      <div class="image-control col-lg-6">
+        <img
+          src="https://balsamiq.com/assets/company/brandassets/balsamiq-logo-screen.svg"
+        />
+      </div>
+      <div class="image-control col-lg-12">
+        <img src="{% static 'mentors/img/BUGSEE-logo.png' %}" />
+      </div>
     </div>
+    {% endcomment %}
 
-</section>
-
-<!-- This Code is for Move to Top Icon Editted by Aditi-->
-<div class="arrow-btn">
-    <a href="#"><i class="fas fa-angle-up"></i></a>
+    <!-- This Code is for Move to Top Icon Editted by Aditi-->
+    <div class="arrow-btn">
+      <a href="#"><i class="fas fa-angle-up"></i></a>
+    </div>
+  </section>
 </div>
-
 {% endblock %}

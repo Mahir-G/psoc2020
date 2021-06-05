@@ -1,3 +1,4 @@
 {
-  "editor.formatOnSave": false
+  "editor.formatOnSave": true,
+  "python.pythonPath": "/home/gurnameh/dev/djangoenv/djangoenv/bin/python"
 }

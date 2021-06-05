@@ -1,20 +1,26 @@
-{% extends 'mentors/base.html' %} {% load static %} {% load getvaluefromdict %} {% block body_block %}
+{% extends 'mentors/base.html' %} {% load static %} {% load getvaluefromdict %}
+{% block body_block %}
 <link rel="stylesheet" href="{% static 'mentors/css/base.css' %}" />
 <link rel="stylesheet" href="{% static 'mentors/css/projects.css' %}" />
 <section class="home-section">
-  {% comment %} <div class="container"> {% endcomment %}
+  {% comment %}
+  <div class="container">
+    {% endcomment %}
     <div class="proj-heading">
       <h1>Projects</h1>
     </div>
     <div class="card-set">
-      {% if projects|length > 0 %}
-      {% for project in projects %}
+      {% if projects|length > 0 %} {% for project in projects %}
       <div class="justify-content-center">
         <div class="card shadow">
-          <div class="row">
+          <div class="row p-2">
             <div class="card-inner col-lg-4">
-              {% comment %} <img src="{% static 'mentors/img/card1.jpg' %}" class="card-img-top" alt="..." /> {%
-              endcomment %}
+              <img
+                src="{% static 'mentors/img/card2.jpg' %}"
+                class="card-img-top"
+                alt="..."
+              />
+
               <h5 class="card-title">{{ project.title }}</h5>
               <div class="mentor-name">
                 <h6>Mentor</h6>
@@ -25,7 +31,10 @@
                 <div class="mentees-flex">
                   {% for student in project.selected_mentee.all %}
                   <div class="student">
-                    <a href='{{ proposals|get_item:student.user.username }}' class="btn btn-primary">
+                    <a
+                      href="{{ proposals|get_item:student.user.username }}"
+                      class="btn btn-primary"
+                    >
                       <p>{{ student.user.username }}</p>
                     </a>
                   </div>
@@ -34,30 +43,33 @@
               </div>
             </div>
             <div class="card-body col-lg-8">
-              {% comment %} <h5 class="card-title">{{ project.title }}</h5> {% endcomment %}
+              <h5 class="card-title">{{ project.title }}</h5>
               <p class="card-text">
                 {{ project.description|slice:":300"|add:" ..." }}
               </p>
               <div class="read-more">
-                <a href="{% url 'projects:detail' project.id %}" class="btn btn-success">Read More</a>
+                <a
+                  href="{% url 'projects:detail' project.id %}"
+                  class="btn btn-success"
+                  >Read More</a
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
-      {% endfor %}
-      {% else %}
+      {% endfor %} {% else %}
       <div class="no-project">
-        <br>
+        <br />
         <h2>No Projects Yet ...</h2>
         <h3>Wait for approval of your projects.</h3>
-        <br>
+        <br />
       </div>
       {% endif %}
     </div>
     {% comment %}
-  </div> {% endcomment %}
-
+  </div>
+  {% endcomment %}
 </section>
 {% endblock %}
 
@@ -86,4 +98,4 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>

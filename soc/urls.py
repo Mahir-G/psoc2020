@@ -32,6 +32,7 @@ urlpatterns = [
     path('mentors/', include('mentors.urls')),
     path('projects/', include('projects.urls')),
     path('mentees/', include('mentees.urls')),
+    path('terms', mentor_views.Terms.as_view(), name='terms')
 ]
 
 
