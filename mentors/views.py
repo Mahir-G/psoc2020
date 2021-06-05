@@ -150,14 +150,16 @@ class Profile(View):
             name = request.POST.get('name')
             linkedin = request.POST.get('linkedin')
             github = request.POST.get('github')
-            if mentor.cv == "":
-                cv = request.FILES['CV']
+            cv = request.POST.get('CV')
+            # if mentor.cv == "":
+                # cv = request.FILES['CV']
 
             mentor.name = name
             mentor.linkedin = linkedin
             mentor.github = github
-            if mentor.cv == "":
-                mentor.cv = cv
+            mentor.cv = cv
+            # if mentor.cv == "":
+                # mentor.cv = cv
             mentor.save()
             return HttpResponseRedirect(reverse('mentors:dashboard'))
         else:
@@ -225,3 +227,8 @@ class EditProject(View):
             return HttpResponseRedirect(reverse('mentors:dashboard'))
         else:
             return HttpResponse('You are not a mentor.')
+
+class Terms(View):
+    template_name='mentors/terms.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, 'mentors/terms.html')

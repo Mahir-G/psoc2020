@@ -25,7 +25,7 @@
           </p>
           <a href="{% url 'projects:detail' project.id %}" class="btn btn-success">Read More</a>
 
-          <!-- <div class="card-text">
+           <div class="card-text">
             <p>Selected Students:</p>
             {% for student in project.selected_mentee.all %}
             <p>{{ student.user.username }}</p>
@@ -47,7 +47,7 @@
               <input type="submit" value="Accept Application" />
             </form>
             {% endfor %}
-          </div> -->
+          </div> 
         </div>
       </div>
     </div>
@@ -55,11 +55,11 @@
   </div>
 </div>
 {% if show_button %}
-{% comment %} <div class="create-project">
+<div class="create-project">
   <button type="button">
     <a href="{% url 'mentors:create_project' %}" class="btn btn-primary">Create new project</a>
   </button>
-</div> {% endcomment %}
+</div> 
 {% endif %}
 </section>
 {% endblock %}
