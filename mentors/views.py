@@ -227,3 +227,8 @@ class EditProject(View):
             return HttpResponseRedirect(reverse('mentors:dashboard'))
         else:
             return HttpResponse('You are not a mentor.')
+
+class Terms(View):
+    template_name='mentors/terms.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, 'mentors/terms.html')
