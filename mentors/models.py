@@ -10,7 +10,8 @@ class Mentor(models.Model):
     name = models.CharField(max_length=64, default="")
     linkedin = models.CharField(max_length=100, null=True, default="")
     github = models.CharField(max_length=100, null=True, default="")
-    cv = models.FileField(upload_to=user_directory_path, null=True, blank=True)
+    # cv = models.FileField(upload_to=user_directory_path, null=True, blank=True)
+    cv = models.CharField(max_length=300, null=True, default="")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_mentor = models.BooleanField(default=True)
 
