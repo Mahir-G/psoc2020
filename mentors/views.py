@@ -14,6 +14,8 @@ from .forms import MentorForm, UserForm
 from projects.forms import ProjectForm
 
 # view to handle the registration form for mentors
+
+
 class Register(View):
     form_class = UserForm
     registered = False
@@ -30,7 +32,7 @@ class Register(View):
             'email': request.POST.get('email'),
             'password': request.POST.get('password')
         }
-        self.errors=[]
+        self.errors = []
         form = self.form_class(data=data)
         if form.is_valid():
             user = form.save(commit=False)
@@ -59,7 +61,8 @@ class Login(View):
         try:
             user = authenticate(username=username, password=password)
         except:
-            messages.add_message(request, messages.ERROR, 'Invalid Username or Password')
+            messages.add_message(request, messages.ERROR,
+                                 'Invalid Username or Password')
 
         if user:
             if user.is_active:
@@ -69,14 +72,17 @@ class Login(View):
                 elif hasattr(request.user, 'mentee'):
                     return HttpResponseRedirect(reverse('mentees:dashboard'))
                 else:
-                    messages.add_message(request, messages.ERROR, 'You are Admin')
+                    messages.add_message(
+                        request, messages.ERROR, 'You are Admin')
             else:
-                messages.add_message(request, messages.ERROR, 'Your Account was Inactive')
+                messages.add_message(
+                    request, messages.ERROR, 'Your Account was Inactive')
         else:
             print("Someone tried to login and failed.")
             print("They used username: {} and password: {}".format(
                 username, password))
-            messages.add_message(request, messages.ERROR, 'Invalid Username or Password')
+            messages.add_message(request, messages.ERROR,
+                                 'Invalid Username or Password')
         return render(request, self.template_name)
 
 
@@ -95,7 +101,7 @@ class DashBoard(View):
 
     def get(self, request, *args, **kwargs):
         if hasattr(request.user, 'mentor'):
-            if not ((request.user.mentor.name !="") and (request.user.mentor.linkedin !="" or request.user.mentor.cv !="")):
+            if not ((request.user.mentor.name != "") and (request.user.mentor.linkedin != "" or request.user.mentor.cv != "")):
                 return redirect('mentors:profile')
             else:
                 if (request.user.mentor.project_set.all().count() >= 3):
@@ -152,14 +158,14 @@ class Profile(View):
             github = request.POST.get('github')
             cv = request.POST.get('CV')
             # if mentor.cv == "":
-                # cv = request.FILES['CV']
+            # cv = request.FILES['CV']
 
             mentor.name = name
             mentor.linkedin = linkedin
             mentor.github = github
             mentor.cv = cv
             # if mentor.cv == "":
-                # mentor.cv = cv
+            # mentor.cv = cv
             mentor.save()
             return HttpResponseRedirect(reverse('mentors:dashboard'))
         else:
@@ -183,8 +189,9 @@ class CreateProject(View):
             description = request.POST.get('description')
             stack = request.POST.get('stack')
 
-            if (title!="" and description!="" and stack!="") and request.user.mentor.project_set.all().count() < 3:
-                new_project = Project(title=title, description=description, stack=stack)
+            if (title != "" and description != "" and stack != "") and request.user.mentor.project_set.all().count() < 3:
+                new_project = Project(
+                    title=title, description=description, stack=stack)
                 new_project.mentor = request.user.mentor
                 if Project.objects.all().count() < 10:
                     new_project.code = 'PSOC0' + \
@@ -198,6 +205,7 @@ class CreateProject(View):
             return HttpResponseRedirect(reverse('mentors:dashboard'))
         else:
             return HttpResponse('You are not a mentor.')
+
 
 class EditProject(View):
     template_name = 'mentors/edit_project.html'
@@ -216,19 +224,44 @@ class EditProject(View):
             stack = request.POST.get('stack')
             project = Project.objects.get(pk=kwargs['pk'])
 
-            if (title!="" and description!="" and stack!="") and request.user.mentor == project.mentor:
+            if (title != "" and description != "" and stack != "") and request.user.mentor == project.mentor:
                 project.title = title
                 project.description = description
                 project.stack = stack
                 project.save()
-                return HttpResponseRedirect(reverse('projects:detail', args=(project.id,)))
+                return HttpResponseRedirect(reverse('mentors:details', args=(project.id,)))
             else:
                 return HttpResponse("Can only add 3 projects")
             return HttpResponseRedirect(reverse('mentors:dashboard'))
         else:
             return HttpResponse('You are not a mentor.')
 
+
 class Terms(View):
-    template_name='mentors/terms.html'
+    template_name = 'mentors/terms.html'
+
     def get(self, request, *args, **kwargs):
         return render(request, 'mentors/terms.html')
+
+
+class ProjectDetails(View):
+    template_name = 'mentors/detail.html'
+    is_mentee = False
+    is_mentor = False
+    is_max_count_not_reached = True
+    already_applied = False
+    proposal_list = {}
+
+    def get(self, request, *args, **kwargs):
+        project = Project.objects.get(pk=kwargs['pk'])
+
+        if hasattr(request.user, 'mentor'):
+
+            if (project.mentor == request.user.mentor):
+                self.is_mentor = True
+                for proposal in project.proposal_set.all():
+                    self.proposal_list[proposal.mentee.user.username] = proposal.proposal_link
+            print("ss", self.is_mentor)
+            return render(request, self.template_name, {'project': project, 'is_mentee': self.is_mentee, 'is_mentor': self.is_mentor, 'not_reached': self.is_max_count_not_reached, 'already_applied': self.already_applied, 'proposals': self.proposal_list})
+        else:
+            return HttpResponse("Error 404: Page not Found")
