@@ -7,15 +7,15 @@ from .models import Project
 from mentees.models import Proposal
 
 
-#view for the main page
+# view for the main page
 class Main(View):
     template_name = 'projects/main.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {})
+        return render(request, 'projects/main.html', {})
 
 
-#view for the list of projects
+# view for the list of projects
 class Index(View):
     template_name = 'projects/index.html'
     proposal_list = {}
@@ -35,10 +35,10 @@ class Index(View):
             proposal_list = self.get_proposal_list(project.id)
             project_detail['proposal_list'] = proposal_list
             projects_details.append(project_detail)
-        return render(request, self.template_name, {'projects':projects, 'projects_details': projects_details, 'proposals': self.proposal_list})
+        return render(request, self.template_name, {'projects': projects, 'projects_details': projects_details, 'proposals': self.proposal_list})
 
 
-#view for the details page of each project
+# view for the details page of each project
 class ProjectDetail(View):
     template_name = 'projects/detail.html'
     is_mentee = False
@@ -52,7 +52,7 @@ class ProjectDetail(View):
         if project.is_approved:
             if hasattr(request.user, 'mentee'):
                 self.is_mentee = True
-                if request.user.mentee.projects.all().count()>=3:
+                if request.user.mentee.projects.all().count() >= 3:
                     self.is_max_count_not_reached = False
                 if project in request.user.mentee.projects.all():
                     self.already_applied = True
@@ -61,7 +61,7 @@ class ProjectDetail(View):
                     self.is_mentor = True
                     for proposal in project.proposal_set.all():
                         self.proposal_list[proposal.mentee.user.username] = proposal.proposal_link
-            return render(request, self.template_name, {'project': project, 'is_mentee': self.is_mentee,'is_mentor': self.is_mentor, 'not_reached': self.is_max_count_not_reached, 'already_applied': self.already_applied, 'proposals': self.proposal_list})
+            return render(request, self.template_name, {'project': project, 'is_mentee': self.is_mentee, 'is_mentor': self.is_mentor, 'not_reached': self.is_max_count_not_reached, 'already_applied': self.already_applied, 'proposals': self.proposal_list})
         return HttpResponse("Error 404: Page not Found")
 
     def post(self, request, *args, **kwargs):
@@ -69,10 +69,11 @@ class ProjectDetail(View):
             mentee = request.user.mentee
             project = Project.objects.get(pk=kwargs['pk'])
             proposal_link = request.POST.get('proposal_link')
-            
-            if mentee.projects.all().count()<3:
+
+            if mentee.projects.all().count() < 3:
                 mentee.projects.add(project)
-                proposal = Proposal(mentee=mentee, project=project, proposal_link=proposal_link)
+                proposal = Proposal(
+                    mentee=mentee, project=project, proposal_link=proposal_link)
                 proposal.save()
                 return HttpResponseRedirect(reverse('projects:detail', args=(project.id,)))
             else:
@@ -85,9 +86,10 @@ class AdminIndex(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_superuser:
             projects = Project.objects.all()
-            return render(request, self.template_name, {'projects':projects})
+            return render(request, self.template_name, {'projects': projects})
         else:
             return HttpResponse("You are not authorized to access this page.")
+
 
 class AdminProjectDetail(View):
     template_name = 'projects/admindetail.html'
@@ -112,6 +114,7 @@ class AdminProjectDetail(View):
 def conduct(request):
 
     return render(request, 'projects/conduct.html')
+
 
 def psoc2020(request):
 
