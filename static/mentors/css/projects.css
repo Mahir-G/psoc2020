@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+.home-section {
+    /* background: url('/static/mentors/img/bg-projects-demo.png');
+    background-size: cover;
+    background-attachment: fixed; */
+    font-family: 'Quicksand', sans-serif;
+    background: #fff;
+}
+
+.card-set {
+    background: url('/static/mentors/img/bg-projects-demo-5.png');
+    background-size: cover;
+    background-attachment: fixed;
+    /* background: #fafafa; */
+    padding: 3rem 0 6rem;
+}
+
+.proj-heading {
+    /* color: rgba(0, 0, 0, 0.87); */
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0 0.8rem;
+    border-bottom: 1.5px solid #1beeff;
+    /* background: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%); */
+    background: url('/static/mentors/img/bg-projects-head.png');
+    background-size: cover;
+    width: 100%;
+}
+
+.proj-heading h1 {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.card {
+    color: #fff;
+    width: 100%;
+    display: flex;
+    word-wrap: break-word;
+    border: none;
+    border-radius: 0;
+    /* background: #272e41; */
+    background: linear-gradient(to right, #203855 0, #17283d 50%, #0e1926 100%);
+    padding: 0rem 0rem;
+    margin: 0.4rem 0;
+}
+
+.card-inner {
+    text-align: right;
+    padding: 3rem 4rem 2rem;
+}
+
+.card-body {
+    padding: 3rem 4rem 2rem;
+    /* background: rgba(255, 255, 255, 0.1); */
+    background: rgba(14, 25, 38, 0.3);
+}
+
+.card-title {
+    font-size: 25px;
+}
+
+.mentor-name {
+    margin-top: 2rem;
+}
+
+.mentor-name h6 {
+    text-decoration: underline;
+}
+
+.student-name h6 {
+    text-decoration: underline;
+}
+
+.mentees-flex {
+    float: right;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-right: -0.6rem;
+}
+
+.student .btn {
+    margin: 0 0.5rem 0.5rem;
+    padding: .2rem .4rem;
+}
+
+.student p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* .read-more {
+    height: 60%;
+    width: 100%;
+    margin-top: 60%;
+    transform: translateY(-100%);
+} */
+
+.no-project{
+    color: black;
+}
+@media only screen and (max-width:992px) {
+    .proj-heading {
+        background: url('/static/mentors/img/bg-conduct-2.png');
+    }
+    .card-inner {
+        text-align: left;
+    }
+    .mentees-flex {
+        float: none;
+        display: flex;
+        justify-content: left;
+        margin-right: 0;
+        margin-left: -0.6rem;
+    }
+    .card-body {
+        padding: 2rem 4rem 2rem;
+    }
+}
+
+@media only screen and (max-width:502px) {
+    .proj-heading h1 {
+        font-size: 30px;
+    }
+    .card-title {
+        font-size: 22px;
+    }
+    .card-inner {
+        padding: 2rem;
+    }
+    .card-body {
+        padding: 2rem;
+    }
+    .card-body p {
+        font-size: 15px;
+    }
+    .card-set {
+        padding: 1rem 0 3rem;
+    }
+}
